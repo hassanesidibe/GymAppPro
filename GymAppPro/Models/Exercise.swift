@@ -16,6 +16,13 @@ struct Exercise: Identifiable {
         demonstartionVideURL = nil
     }
     
+    init(_ name: String, _ muscle: Muscle, sets: [ExerciseSet]) {
+        self.name = name
+        self.muscle = muscle
+        self.sets = sets
+        demonstartionVideURL = nil
+    }
+    
     let id = UUID()
     let name: String
     let muscle: Muscle

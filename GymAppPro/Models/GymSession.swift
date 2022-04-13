@@ -25,12 +25,13 @@ struct GymSession: Identifiable {
     }
 }
 
+//DemoModel.allSessions[0].exercercises[0]
 
 struct DemoModel {
     
     static var allGymSessions: [GymSession] = [
         GymSession(exercises: [
-            Exercise("Lat pulldown", .back), Exercise("Leg curl", .hamstring), Exercise("Seated Row", .back), Exercise("Straight arm pull down", .back), Exercise("Dumbell biceps curl", .biceps), Exercise("Machine biceps curl", .biceps), Exercise("Cable biceps curl", .biceps), Exercise("Machine dips", .tricep),Exercise("Cable reverse fly", .shoulder)
+            Exercise("Lat pulldown", .back, sets: DemoModel.backDemoSet), Exercise("Leg curl", .hamstring, sets: DemoModel.legDemoSet), Exercise("Seated Row", .back, sets: DemoModel.backDemoSet), Exercise("Straight arm pull down", .back), Exercise("Dumbell biceps curl", .biceps), Exercise("Machine biceps curl", .biceps), Exercise("Cable biceps curl", .biceps), Exercise("Machine dips", .tricep),Exercise("Cable reverse fly", .shoulder)
         ]),
         
         GymSession(exercises: [
@@ -60,6 +61,17 @@ struct DemoModel {
     ]
     
     
+    static var chestDemoSet: [ExerciseSet] = [
+        ExerciseSet(setNum: 0, weight: 100, reps: 16), ExerciseSet(setNum: 2, weight: 150, reps: 14), ExerciseSet(setNum: 3, weight: 220, reps: 10), ExerciseSet(setNum: 4, weight: 250, reps: 8), ExerciseSet(setNum: 5, weight: 315, reps: 3)
+    ]
+    
+    static var backDemoSet: [ExerciseSet] = [
+        ExerciseSet(setNum: 0, weight: 100, reps: 16), ExerciseSet(setNum: 2, weight: 150, reps: 14), ExerciseSet(setNum: 3, weight: 180, reps: 10), ExerciseSet(setNum: 4, weight: 200, reps: 8), ExerciseSet(setNum: 5, weight: 220, reps: 3)
+    ]
+    
+    static var legDemoSet: [ExerciseSet] = [
+        ExerciseSet(setNum: 0, weight: 300, reps: 16), ExerciseSet(setNum: 2, weight: 405, reps: 14), ExerciseSet(setNum: 3, weight: 500, reps: 10), ExerciseSet(setNum: 4, weight: 700, reps: 8)
+    ]
 }
 
 
