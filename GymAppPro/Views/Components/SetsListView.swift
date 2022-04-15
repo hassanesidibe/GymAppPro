@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-//This view takes an array of exercise sets and displays them in a list
+//This view takes an exercise and displays the sets performed in a list
 struct SetsListView: View {
     
     var exercise: Exercise
 //    let sets: [ExerciseSet]
-    var userColorTheme: Color
+    var userColorTheme: Color = .red
     
     var body: some View {
         
         VStack(alignment: .leading) {
-            List {
+            
+            /*List {
                 
                 Text(exercise.name).font(.title2)
                 ForEach(exercise.sets) {exerciseSet in
@@ -28,16 +29,63 @@ struct SetsListView: View {
                         
                         Spacer()
                         
-    //                    Text("\(exerciseSet.weight, specifier: "%2.f") lb(s) X \(exerciseSet.reps) rep(s)")
                         Text("\(exerciseSet.weight, specifier: "%2.f")").foregroundColor(userColorTheme).font(.title3)
                         Text("\(exerciseSet.weight > 0 ? "lbs " : "lb ") X ")
                         Text("\(exerciseSet.reps)").foregroundColor(userColorTheme).font(.title3)
                         Text("\(exerciseSet.reps > 1 ? "reps" : "rep")")
                     }
                 }
+            }*/
+            
+            
+            
+            
+            VStack(alignment: .leading) {
+                
+                Text(exercise.name).font(.title2)
+                    .padding(.bottom)
+                
+                ForEach(exercise.sets) {exerciseSet in
+                    
+                    /*HStack {
+                        Text("Set: \(exerciseSet.setNum)")
+                            .bold()
+                        
+                        Spacer()
+                        
+                        Text("\(exerciseSet.weight, specifier: "%2.f")").foregroundColor(userColorTheme).font(.title3)
+                        Text("\(exerciseSet.weight > 0 ? "lbs " : "lb ") X ")
+                        Text("\(exerciseSet.reps)").foregroundColor(userColorTheme).font(.title3)
+                        Text("\(exerciseSet.reps > 1 ? "reps" : "rep")")
+                    }*/
+                    
+                    
+                    HStack {
+                        Text("Set: \(exerciseSet.setNum)")
+                            .bold()
+                        
+                        Spacer()
+                        
+                        Text("\(exerciseSet.weight, specifier: "%2.f")").foregroundColor(userColorTheme).font(.title3)
+                        Text("\(exerciseSet.weight > 0 ? "lbs " : "lb ") X ")
+                        Text("\(exerciseSet.reps)").foregroundColor(userColorTheme).font(.title3)
+                        Text("\(exerciseSet.reps > 1 ? "reps" : "rep")")
+                    }
+                    .background(Color.gray.opacity(0.1))
+                    .padding(0.1)
+                    
+                    
+                }
             }
+            .padding()
+            .padding()
+            
+            
+            
+            
+            
         }
-        .padding()
+//        .frame(height: 300)
     }
 }
 

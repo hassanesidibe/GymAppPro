@@ -9,27 +9,89 @@ import SwiftUI
 
 struct SessionDetailView: View {
     var session: GymSession
+    @State private var showNewExerciseView = false
     
     var body: some View {
        
+//        ScrollView {
+//                //Use asyncImage in a loop to display the images for all the muscles the user worked on during that gym session.
+//            GymSessionMuscleImages(session: session)
+//
+//            musclesNameView
+//
+//            VStack {
+//                ForEach(session.exercises) {exercise in
+//                    SetsListView(exercise: exercise)
+//                }
+//            }
+//        }
+        
         ScrollView {
-                //Use asyncImage in a loop to display the images for all the muscles the user worked on during that gym session.
-            GymSessionMuscleImages(session: session)
-            
-            musclesNameView
-            
-            HStack {
-                Text("Back Dummy text:")
-                    .fontWeight(.bold).padding()
-                Spacer()
+            VStack {
+                
+//                sessionDateView
+                GymSessionMuscleImages(session: session)
+                
+                VStack {
+                    musclesNameView
+                    
+                    VStack {
+                            ForEach(session.exercises) {exercise in
+                                
+                                if !exercise.sets.isEmpty {
+                                    SetsListView(exercise: exercise)
+                                }
+                                
+                            }
+                    }
+                }
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showNewExerciseView = true
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+        }
+        
+        .sheet(isPresented: $showNewExerciseView) {
+            NewExerciseView()
+        }
+        .navigationTitle(Text(session.getDateAsString()))
+        .navigationBarTitleDisplayMode(.inline)
+        
     }
+    
+    /*
+    var sessionDateView: some View {
+        Text(session.getDateAsString())
+            .font(.title3)
+    }*/
+    
+   /* var newExerciseButton: some View {
+        HStack {
+            Spacer()
+            Button(action: {
+                //Present NewExerciseView
+                showNewExerciseView = true
+            }) {
+                Image(systemName: "plus").font(.title)
+                    .padding(.trailing)
+            }
+            .sheet(isPresented: $showNewExerciseView) {
+                NewExerciseView()
+            }
+        }
+    }*/
     
     var musclesNameView: some View {
         HStack {
-            Text("Back, Biceps, shoulders, Dummy text")
-                .bold()
+            Text(allMusclesWorkedDuringSession(session.exercises))
+                .font(.headline)
+                .padding(.leading)
         }
         .font(.largeTitle)
     }

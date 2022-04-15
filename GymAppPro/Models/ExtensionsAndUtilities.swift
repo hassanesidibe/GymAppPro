@@ -45,11 +45,18 @@ func allMusclesWorkedDuringSession(_ exercises: [Exercise]) -> String {
         let newName = exercise.muscle.rawValue
         
         if !namesString.contains(newName) {
-            if namesString.isEmpty {
-                namesString.append(newName)
-            }
+            
+            namesString.append(newName + ",")
+            
+//            if namesString.isEmpty {
+//                namesString.append(newName + ",")
+//
+//            }
         }
     }
+    
+    //removes the last comma in the muscle name list
+    namesString.removeLast()
     
     return namesString
 }

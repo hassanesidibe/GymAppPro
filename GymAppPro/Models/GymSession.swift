@@ -31,7 +31,7 @@ struct DemoModel {
     
     static var allGymSessions: [GymSession] = [
         GymSession(exercises: [
-            Exercise("Lat pulldown", .back, sets: DemoModel.backDemoSet), Exercise("Leg curl", .hamstring, sets: DemoModel.legDemoSet), Exercise("Seated Row", .back, sets: DemoModel.backDemoSet), Exercise("Straight arm pull down", .back), Exercise("Dumbell biceps curl", .biceps), Exercise("Machine biceps curl", .biceps), Exercise("Cable biceps curl", .biceps), Exercise("Machine dips", .tricep),Exercise("Cable reverse fly", .shoulder)
+            Exercise("Lat pulldown", .back, sets: DemoModel.backDemoSet), Exercise("Leg curl", .hamstring, sets: DemoModel.legDemoSet), Exercise("Seated Row", .back, sets: DemoModel.backDemoSet), Exercise("Straight arm pull down", .back), Exercise("Dumbell biceps curl", .biceps, sets: DemoModel.bicepsDemoSet), Exercise("Machine biceps curl", .biceps, sets: DemoModel.bicepsDemoSet), Exercise("Cable biceps curl", .biceps, sets: DemoModel.bicepsDemoSet), Exercise("Machine dips", .tricep, sets: DemoModel.tricepsDemoSet),Exercise("Cable reverse fly", .shoulder, sets: DemoModel.shoulderDemoSet)
         ]),
         
         GymSession(exercises: [
@@ -71,6 +71,18 @@ struct DemoModel {
     
     static var legDemoSet: [ExerciseSet] = [
         ExerciseSet(setNum: 0, weight: 300, reps: 16), ExerciseSet(setNum: 2, weight: 405, reps: 14), ExerciseSet(setNum: 3, weight: 500, reps: 10), ExerciseSet(setNum: 4, weight: 700, reps: 8)
+    ]
+    
+    static var bicepsDemoSet: [ExerciseSet] = [
+        ExerciseSet(setNum: 0, weight: 100, reps: 16), ExerciseSet(setNum: 2, weight: 120, reps: 14), ExerciseSet(setNum: 3, weight: 150, reps: 10)
+    ]
+    
+    static var shoulderDemoSet: [ExerciseSet] = [
+        ExerciseSet(setNum: 0, weight: 100, reps: 16), ExerciseSet(setNum: 2, weight: 120, reps: 14), ExerciseSet(setNum: 3, weight: 150, reps: 10)
+    ]
+    
+    static var tricepsDemoSet: [ExerciseSet] = [
+        ExerciseSet(setNum: 0, weight: 100, reps: 16), ExerciseSet(setNum: 2, weight: 120, reps: 14), ExerciseSet(setNum: 3, weight: 150, reps: 10)
     ]
 }
 
