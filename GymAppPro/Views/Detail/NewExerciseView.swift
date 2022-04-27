@@ -44,6 +44,9 @@ struct NewExerciseView: View {
                     }
                 }
             }
+            
+            .navigationTitle("New Exercise")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

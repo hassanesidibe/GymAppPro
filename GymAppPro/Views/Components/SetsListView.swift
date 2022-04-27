@@ -18,47 +18,21 @@ struct SetsListView: View {
         
         VStack(alignment: .leading) {
             
-            /*List {
-                
-                Text(exercise.name).font(.title2)
-                ForEach(exercise.sets) {exerciseSet in
-                    
-                    HStack {
-                        Text("Set: \(exerciseSet.setNum)")
-                            .bold()
-                        
-                        Spacer()
-                        
-                        Text("\(exerciseSet.weight, specifier: "%2.f")").foregroundColor(userColorTheme).font(.title3)
-                        Text("\(exerciseSet.weight > 0 ? "lbs " : "lb ") X ")
-                        Text("\(exerciseSet.reps)").foregroundColor(userColorTheme).font(.title3)
-                        Text("\(exerciseSet.reps > 1 ? "reps" : "rep")")
-                    }
-                }
-            }*/
-            
-            
-            
-            
             VStack(alignment: .leading) {
                 
-                Text(exercise.name).font(.title2)
+                HStack {
+                    Text(exercise.name).font(.title2)
+                    Spacer()
+                    Button(action: {
+                        //ADD A SET TO THE EXERCISE THAT WILL BE PASS TO THIS VIEW
+                        
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                }
                     .padding(.bottom)
                 
                 ForEach(exercise.sets) {exerciseSet in
-                    
-                    /*HStack {
-                        Text("Set: \(exerciseSet.setNum)")
-                            .bold()
-                        
-                        Spacer()
-                        
-                        Text("\(exerciseSet.weight, specifier: "%2.f")").foregroundColor(userColorTheme).font(.title3)
-                        Text("\(exerciseSet.weight > 0 ? "lbs " : "lb ") X ")
-                        Text("\(exerciseSet.reps)").foregroundColor(userColorTheme).font(.title3)
-                        Text("\(exerciseSet.reps > 1 ? "reps" : "rep")")
-                    }*/
-                    
                     
                     HStack {
                         Text("Set: \(exerciseSet.setNum)")
@@ -85,7 +59,6 @@ struct SetsListView: View {
             
             
         }
-//        .frame(height: 300)
     }
 }
 

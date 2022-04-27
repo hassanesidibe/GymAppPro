@@ -36,7 +36,8 @@ struct SessionDetailView: View {
                     musclesNameView
                     
                     VStack {
-                            ForEach(session.exercises) {exercise in
+                        //This will show the last exercise that was adder in the begining of the list
+                        ForEach(session.exercises.reversed()) {exercise in
                                 
                                 if !exercise.sets.isEmpty {
                                     SetsListView(exercise: exercise)
@@ -52,7 +53,8 @@ struct SessionDetailView: View {
                 Button(action: {
                     showNewExerciseView = true
                 }) {
-                    Image(systemName: "plus")
+//                    Image(systemName: "plus")
+                    Text("New Exercise")
                 }
             }
         }

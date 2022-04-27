@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453F3099280CAF02008FA672 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 453F3098280CAF02008FA672 /* SwiftUICharts */; };
+		453F309B280CC144008FA672 /* ExerciseTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453F309A280CC144008FA672 /* ExerciseTutorialView.swift */; };
 		454756B52807766B0033623A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756B42807766B0033623A /* TabBar.swift */; };
 		454756B7280776890033623A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756B6280776890033623A /* HomeView.swift */; };
 		454756B9280776A40033623A /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756B8280776A40033623A /* ProgressView.swift */; };
@@ -31,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		453F309A280CC144008FA672 /* ExerciseTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTutorialView.swift; sourceTree = "<group>"; };
 		454756B42807766B0033623A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		454756B6280776890033623A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		454756B8280776A40033623A /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453F3099280CAF02008FA672 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +106,7 @@
 				454756B8280776A40033623A /* ProgressView.swift */,
 				454756BA280776BC0033623A /* NewSessionView.swift */,
 				454756BC280776DB0033623A /* SettingsView.swift */,
+				453F309A280CC144008FA672 /* ExerciseTutorialView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -182,6 +187,9 @@
 			dependencies = (
 			);
 			name = GymAppPro;
+			packageProductDependencies = (
+				453F3098280CAF02008FA672 /* SwiftUICharts */,
+			);
 			productName = GymAppPro;
 			productReference = 4549173A2800E2040022ED0B /* GymAppPro.app */;
 			productType = "com.apple.product-type.application";
@@ -210,6 +218,9 @@
 				Base,
 			);
 			mainGroup = 454917312800E2040022ED0B;
+			packageReferences = (
+				453F3097280CAF02008FA672 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 4549173B2800E2040022ED0B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453F309B280CC144008FA672 /* ExerciseTutorialView.swift in Sources */,
 				454756BB280776BC0033623A /* NewSessionView.swift in Sources */,
 				454917472800E2040022ED0B /* Persistence.swift in Sources */,
 				454756C32807784C0033623A /* GymSessionCard.swift in Sources */,
@@ -457,6 +469,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		453F3097280CAF02008FA672 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		453F3098280CAF02008FA672 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 453F3097280CAF02008FA672 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		454917482800E2040022ED0B /* GymAppPro.xcdatamodeld */ = {
