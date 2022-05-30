@@ -60,3 +60,14 @@ func allMusclesWorkedDuringSession(_ exercises: [Exercise]) -> String {
     
     return namesString
 }
+
+
+extension Date {
+    func getDateAsString() -> String {
+        
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            return dateFormatter.string(from: self)
+    }
+}

@@ -7,6 +7,66 @@
 
 import Foundation
 
+//This is my new model
+struct GymSession {
+    var sessionId = UUID()
+    var date: Date
+    var exercises: String
+    private static var idexerciseIds = 0
+    var numOfExercisePerformed: Int {
+        exercisePerformedAsArray().count
+    }
+    init() {
+        date = Date()
+        exercises = ""
+    }
+    
+    
+    //The final version of this function should take the name and the muscle group of the exercise, and the muscle group should appear imediately after the exercise id.
+    mutating func addExercise(_ newExercise: String) {
+//        let id = UUID()  //this is the new exercise id
+        
+        let id = getNewId()
+        
+        if exercises.isEmpty {
+//            exercises = id.uuidString
+            exercises.append(contentsOf: "\(id);" + newExercise)
+            
+        } else {
+            exercises.append(contentsOf: "\n\(id);\(newExercise)|")
+        }
+    }
+    
+    func exercisePerformedAsArray() -> [String.SubSequence] {
+        let exerciseArray = exercises.split(separator: "\n")
+        return exerciseArray
+    }
+    
+    mutating func addSet(to exeriseId: String, weight: String, reps: String) {
+        
+        var exerciseArray = exercises.split(separator: "\n")
+        
+        //first find the row index of the set that matches with the id in the split exercise array
+        for i in exerciseArray.indices {
+            if exerciseArray[i].contains(exeriseId) {
+               //Append the exercise set to this index of the exercise array
+                exerciseArray[i] = exerciseArray[i] + "\(weight)x\(reps),"
+            }
+        }
+        //Convert the exercise array back to one String to be stored in the exercises variable of the struct
+        exercises = exerciseArray.joined(separator: "\n")
+        
+    }
+    
+    private mutating func getNewId() ->Int {
+        GymSession.idexerciseIds = GymSession.idexerciseIds + 1
+        return GymSession.idexerciseIds
+    }
+}
+
+
+
+/*
 struct GymSession: Identifiable {
     let id = UUID()
     let date = Date()
@@ -85,5 +145,7 @@ struct DemoModel {
         ExerciseSet(setNum: 0, weight: 100, reps: 16), ExerciseSet(setNum: 2, weight: 120, reps: 14), ExerciseSet(setNum: 3, weight: 150, reps: 10)
     ]
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   */
 
 
