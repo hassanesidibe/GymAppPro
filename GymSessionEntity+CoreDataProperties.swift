@@ -32,9 +32,11 @@ extension GymSessionEntity {
         let set = exercises as? Set<ExerciseEntity> ?? []
         
         return set.sorted {
-            $0.info < $1.info
+            $0.unwrappedInfo < $1.unwrappedInfo
         }
     }
+    
+    
 
 }
 

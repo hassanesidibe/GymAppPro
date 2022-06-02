@@ -9,12 +9,14 @@ import SwiftUI
 
 struct GymSessionCard: View {
     
-    var session: GymSession
+    var session: GymSessionEntity
     
-    var body: some View {
+    init(_ session: GymSessionEntity) { self.session = session }
+    
+var body: some View {
         
         
-        VStack {
+ /*       VStack {
             //The image i used here should be comming from the exercises in the gym session, based on the muscle group
 //            AsyncImage(url: URL(string: "https://www.t-nation.com/wp-content/uploads/2018/12/Pre-Stimulation-Hamstring-Training.jpeg")) {image in
             AsyncImage(url: URL(string: getImageURL(for: session.exercises[0].muscle))) {image in
@@ -29,19 +31,27 @@ struct GymSessionCard: View {
                     .opacity(0.7)
                     .frame(width: 100, height: 100)
             }
+        }*/
+        
+    VStack {
+        Image(systemName: "photo")
+            .resizable()
+            .scaledToFit()
+            .opacity(0.7)
+            .frame(width: 100, height: 100)
         }
         .frame(width: 170, height: 215)
         .background(LinearGradient(colors: [.gray.opacity(0.3), .gray], startPoint: .top, endPoint: .bottom))
         .clipShape(RoundedRectangle(cornerRadius: 22))
         .shadow(color: .black.opacity(0.4), radius: 15, x: 0, y: 15)
         .overlay(alignment: .bottom) {
-            Text(session.getDateAsString())
+            Text("\(session.unwrappedDate.getDateAsString())")
                 .foregroundColor(.white)
                 .shadow(color: .black, radius: 5, x: 0, y: 0)
                 .padding()
         }
         .overlay(alignment: .top) {
-            Text(session.exercises[0].muscle.rawValue)
+            Text("Dummy Muscle")
                 .foregroundColor(.white)
                 .shadow(color: .black, radius: 5, x: 0, y: 0)
                 .padding()
@@ -105,8 +115,8 @@ struct ScrollableGymSessionCard: View {
 
 
 
-struct GymSessionCard_Previews: PreviewProvider {
-    static var previews: some View {
-        GymSessionCard(session: DemoModel.allGymSessions[0])
-    }
-}
+//struct GymSessionCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GymSessionCard(session: DemoModel.allGymSessions[0])
+//    }
+//}

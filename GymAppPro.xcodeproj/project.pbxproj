@@ -35,6 +35,7 @@
 		456F9B1728494FE500BF5DA4 /* ExerciseEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1328494FE500BF5DA4 /* ExerciseEntity+CoreDataProperties.swift */; };
 		456F9B1A2849531200BF5DA4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B192849531200BF5DA4 /* CoreDataManager.swift */; };
 		456F9B1C2849561500BF5DA4 /* GymSessionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1B2849561500BF5DA4 /* GymSessionVM.swift */; };
+		456F9B2028497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1F28497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +66,8 @@
 		456F9B1228494FE500BF5DA4 /* ExerciseEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		456F9B1328494FE500BF5DA4 /* ExerciseEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		456F9B192849531200BF5DA4 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		456F9B1B2849561500BF5DA4 /* GymSessionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSessionVM.swift; sourceTree = "<group>"; };
+		456F9B1B2849561500BF5DA4 /* GymSessionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSessionVM.swift; sourceTree = "<group>"; tabWidth = 4; };
+		456F9B1F28497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				456F9B1B2849561500BF5DA4 /* GymSessionVM.swift */,
+				456F9B1F28497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				454756C9280778B80033623A /* Exercise.swift in Sources */,
 				456F9B1A2849531200BF5DA4 /* CoreDataManager.swift in Sources */,
 				454917402800E2040022ED0B /* ContentView.swift in Sources */,
+				456F9B2028497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift in Sources */,
 				454756C52807786B0033623A /* GymSessionList.swift in Sources */,
 				454756B7280776890033623A /* HomeView.swift in Sources */,
 				454756BF280778010033623A /* SessionDetailView.swift in Sources */,

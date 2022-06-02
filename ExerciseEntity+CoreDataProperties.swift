@@ -18,6 +18,10 @@ extension ExerciseEntity {
 
     @NSManaged public var info: String?
     @NSManaged public var origin: GymSessionEntity?
+    
+    public var unwrappedInfo: String {
+        info ?? "No Info"
+    }
 
 }
 

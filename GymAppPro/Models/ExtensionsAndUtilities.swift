@@ -55,6 +55,10 @@ func allMusclesWorkedDuringSession(_ exercises: [Exercise]) -> String {
         }
     }
     
+    
+    
+    
+    
     //removes the last comma in the muscle name list
     namesString.removeLast()
     

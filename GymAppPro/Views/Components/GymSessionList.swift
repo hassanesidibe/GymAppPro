@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct GymSessionList: View {
-    var sessions: [GymSession]
+    
+    private var context: NSManagedObjectContext
+    private var sessionListViewMV
+    
+    init(context: NSManagedObjectContext) { self.context = context }
     
     var body: some View {
         
@@ -26,6 +31,8 @@ struct GymSessionList: View {
 
 struct GymSessionList_Previews: PreviewProvider {
     static var previews: some View {
-        GymSessionList(sessions: DemoModel.allGymSessions)
+        
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        GymSessionList(context: context)
     }
 }
