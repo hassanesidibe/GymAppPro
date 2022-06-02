@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewSessionView: View {
+    
     var body: some View {
         Text("New Session View")
     }

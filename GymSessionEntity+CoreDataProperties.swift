@@ -19,6 +19,22 @@ extension GymSessionEntity {
     @NSManaged public var date: Date?
     @NSManaged public var id: UUID?
     @NSManaged public var exercises: NSSet?
+    
+    public var unwrappedDate: Date {
+        date ?? Date()
+    }
+    
+    public var unwrapppedId: UUID {
+        id ?? UUID()
+    }
+    
+    var exerciseArray: [ExerciseEntity] {
+        let set = exercises as? Set<ExerciseEntity> ?? []
+        
+        return set.sorted {
+            $0.info < $1.info
+        }
+    }
 
 }
 

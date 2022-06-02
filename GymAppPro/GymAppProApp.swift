@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct GymAppProApp: App {
-    let persistenceController = PersistenceController.shared
+    let persistenceController = CoreDataManager.shared
 
     var body: some Scene {
         WindowGroup {
