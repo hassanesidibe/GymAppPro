@@ -28,11 +28,6 @@
 		454917422800E2040022ED0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454917412800E2040022ED0B /* Assets.xcassets */; };
 		454917452800E2040022ED0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454917442800E2040022ED0B /* Preview Assets.xcassets */; };
 		4557F8522808D3AE00AB853A /* NewExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F8512808D3AE00AB853A /* NewExerciseView.swift */; };
-		456F9B0F28494ED000BF5DA4 /* GymSessionDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B0D28494ED000BF5DA4 /* GymSessionDataModel.xcdatamodeld */; };
-		456F9B1428494FE500BF5DA4 /* GymSessionEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1028494FE500BF5DA4 /* GymSessionEntity+CoreDataClass.swift */; };
-		456F9B1528494FE500BF5DA4 /* GymSessionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1128494FE500BF5DA4 /* GymSessionEntity+CoreDataProperties.swift */; };
-		456F9B1628494FE500BF5DA4 /* ExerciseEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1228494FE500BF5DA4 /* ExerciseEntity+CoreDataClass.swift */; };
-		456F9B1728494FE500BF5DA4 /* ExerciseEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1328494FE500BF5DA4 /* ExerciseEntity+CoreDataProperties.swift */; };
 		456F9B1A2849531200BF5DA4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B192849531200BF5DA4 /* CoreDataManager.swift */; };
 		456F9B1C2849561500BF5DA4 /* GymSessionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1B2849561500BF5DA4 /* GymSessionVM.swift */; };
 		456F9B2028497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1F28497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift */; };
@@ -60,11 +55,6 @@
 		454917412800E2040022ED0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		454917442800E2040022ED0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4557F8512808D3AE00AB853A /* NewExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseView.swift; sourceTree = "<group>"; };
-		456F9B0E28494ED000BF5DA4 /* GymSessionDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymSessionDataModel.xcdatamodel; sourceTree = "<group>"; };
-		456F9B1028494FE500BF5DA4 /* GymSessionEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GymSessionEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		456F9B1128494FE500BF5DA4 /* GymSessionEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GymSessionEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		456F9B1228494FE500BF5DA4 /* ExerciseEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		456F9B1328494FE500BF5DA4 /* ExerciseEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		456F9B192849531200BF5DA4 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		456F9B1B2849561500BF5DA4 /* GymSessionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSessionVM.swift; sourceTree = "<group>"; tabWidth = 4; };
 		456F9B1F28497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewViewModel.swift; sourceTree = "<group>"; };
@@ -104,7 +94,6 @@
 		454756B0280775FC0033623A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				456F9B0D28494ED000BF5DA4 /* GymSessionDataModel.xcdatamodeld */,
 				454756C8280778B80033623A /* Exercise.swift */,
 				454756CA280778D10033623A /* GymSession.swift */,
 				454756CC280778F70033623A /* ExtensionsAndUtilities.swift */,
@@ -150,10 +139,6 @@
 		454917312800E2040022ED0B = {
 			isa = PBXGroup;
 			children = (
-				456F9B1028494FE500BF5DA4 /* GymSessionEntity+CoreDataClass.swift */,
-				456F9B1128494FE500BF5DA4 /* GymSessionEntity+CoreDataProperties.swift */,
-				456F9B1228494FE500BF5DA4 /* ExerciseEntity+CoreDataClass.swift */,
-				456F9B1328494FE500BF5DA4 /* ExerciseEntity+CoreDataProperties.swift */,
 				4549173C2800E2040022ED0B /* GymAppPro */,
 				4549173B2800E2040022ED0B /* Products */,
 			);
@@ -285,17 +270,12 @@
 				454756C52807786B0033623A /* GymSessionList.swift in Sources */,
 				454756B7280776890033623A /* HomeView.swift in Sources */,
 				454756BF280778010033623A /* SessionDetailView.swift in Sources */,
-				456F9B1628494FE500BF5DA4 /* ExerciseEntity+CoreDataClass.swift in Sources */,
 				454756B9280776A40033623A /* ProgressView.swift in Sources */,
-				456F9B1528494FE500BF5DA4 /* GymSessionEntity+CoreDataProperties.swift in Sources */,
-				456F9B0F28494ED000BF5DA4 /* GymSessionDataModel.xcdatamodeld in Sources */,
 				454756C1280778280033623A /* ExerciseDetailView.swift in Sources */,
-				456F9B1728494FE500BF5DA4 /* ExerciseEntity+CoreDataProperties.swift in Sources */,
 				454756CF28077A680033623A /* SetsListView.swift in Sources */,
 				454756CB280778D10033623A /* GymSession.swift in Sources */,
 				4557F8522808D3AE00AB853A /* NewExerciseView.swift in Sources */,
 				454756C72807788C0033623A /* GymSessionMuscleImages.swift in Sources */,
-				456F9B1428494FE500BF5DA4 /* GymSessionEntity+CoreDataClass.swift in Sources */,
 				456F9B1C2849561500BF5DA4 /* GymSessionVM.swift in Sources */,
 				4549173E2800E2040022ED0B /* GymAppProApp.swift in Sources */,
 				454756B52807766B0033623A /* TabBar.swift in Sources */,
@@ -520,19 +500,6 @@
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		456F9B0D28494ED000BF5DA4 /* GymSessionDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				456F9B0E28494ED000BF5DA4 /* GymSessionDataModel.xcdatamodel */,
-			);
-			currentVersion = 456F9B0E28494ED000BF5DA4 /* GymSessionDataModel.xcdatamodel */;
-			path = GymSessionDataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 454917322800E2040022ED0B /* Project object */;
 }

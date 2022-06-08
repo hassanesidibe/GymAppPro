@@ -14,7 +14,9 @@ struct HomeView: View {
     
     @ObservedObject var gymSessionVM: GymSessionVM
     
-    init(vm: GymSessionVM) { self.gymSessionVM = vm }
+    init(vm: GymSessionVM) {
+        self.gymSessionVM = vm
+    }
     
     var body: some View {
         

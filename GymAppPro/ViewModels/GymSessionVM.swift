@@ -43,7 +43,6 @@ class GymSessionVM: ObservableObject {
     }
     
     func deleteSession(_ session: GymSessionEntity) {
-//        context.delete(session)
-        
+        context.delete(session)
     }
 }
