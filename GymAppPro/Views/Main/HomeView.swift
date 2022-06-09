@@ -6,30 +6,25 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeView: View {
     
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var gymSessions: FetchedResults<GymSessionEntity>
+    @ObservedObject var vm: ViewModel
+    let viewContext: NSManagedObjectContext
     
-    @ObservedObject var gymSessionVM: GymSessionVM
-    
-    init(vm: GymSessionVM) {
-        self.gymSessionVM = vm
+    init() {
+        self.viewContext = CoreDataManager.shared.persistentContainer.viewContext
+        self.vm = ViewModel(context: viewContext)
     }
     
     var body: some View {
         
         NavigationView {
             ScrollView {
-//                GymSessionList(sessions: DemoModel.allGymSessions)
-//                GymSessionList(context: moc)
-                ForEach(gymSessionVM.allGymSessions) {session in
-                    
-                    //Display the session here
-                    GymSessionCard(session)
-                    
-                }
+                
+                
+                GymSessionList(sessions: vm.sessions, context: viewContext)
             }
             .navigationTitle("Home")
         }
@@ -39,8 +34,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let context = CoreDataManager.shared.persistentContainer.viewContext
-        HomeView(vm: GymSessionVM(context: context))
+        HomeView()
     }
 }
 

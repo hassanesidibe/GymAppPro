@@ -6,64 +6,67 @@
 //
 
 import SwiftUI
+import CoreData
 
-//This view takes an exercise and displays the sets performed in a list
+//I NO LONGER NEED THIS VIEW, IT'S TASK IS BEING PERFORMED BY EXERCISE DETAIL VIEW
 struct SetsListView: View {
     
-    var exercise: Exercise
-//    let sets: [ExerciseSet]
-    var userColorTheme: Color = .red
+    var exercise: ExerciseEntity
+    private var context: NSManagedObjectContext
+    var userColorTheme: Color
+    @State private var showAddSetView = false
+    
+    init(_ exercise: ExerciseEntity, context: NSManagedObjectContext, theme: Color = .red) {
+        self.exercise = exercise
+        self.context = context
+        self.userColorTheme = theme
+    }
     
     var body: some View {
         
+        let sets = SetEntity.getAllSetsForExercise(exercise, context: context)
+        
         VStack(alignment: .leading) {
-            
             VStack(alignment: .leading) {
                 
                 HStack {
-                    Text(exercise.name).font(.title2)
+                    Text(exercise.unwrappedName).font(.title2)
                     Spacer()
-                    Button(action: {
-                        //ADD A SET TO THE EXERCISE THAT WILL BE PASS TO THIS VIEW
-                        
-                    }) {
-                        Image(systemName: "plus")
-                    }
+                    showSheetForAdding_newSet_button
                 }
                     .padding(.bottom)
                 
-                ForEach(exercise.sets) {exerciseSet in
+                ForEach(sets) {exerciseSet in
                     
-                    HStack {
-                        Text("Set: \(exerciseSet.setNum)")
-                            .bold()
-                        
-                        Spacer()
-                        
-                        Text("\(exerciseSet.weight, specifier: "%2.f")").foregroundColor(userColorTheme).font(.title3)
-                        Text("\(exerciseSet.weight > 0 ? "lbs " : "lb ") X ")
-                        Text("\(exerciseSet.reps)").foregroundColor(userColorTheme).font(.title3)
-                        Text("\(exerciseSet.reps > 1 ? "reps" : "rep")")
-                    }
-                    .background(Color.gray.opacity(0.1))
-                    .padding(0.1)
-                    
-                    
+                    Text("\(exerciseSet.weight)lbs X \(exerciseSet.reps) reps")
+                        .foregroundColor(userColorTheme)
                 }
             }
             .padding()
             .padding()
-            
-            
-            
-            
-            
+            .sheet(isPresented: $showAddSetView) {
+                NewSetView(self.exercise, context: self.context)
+            }
         }
     }
+    
+    private var showSheetForAdding_newSet_button: some View {
+        Button(action: {
+            showAddSetView = true
+        }) {
+            Image(systemName: "plus")
+        }
+    }
+    
+    private func addSet() {
+        
+    }
+    
 }
 
-struct SetsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        SetsListView(exercise: DemoModel.allGymSessions[0].exercises[0], userColorTheme: .red)
-    }
-}
+
+//struct SetsListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SetsListView()
+//    }
+//}

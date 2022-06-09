@@ -9,14 +9,15 @@ import SwiftUI
 
 @main
 struct GymAppProApp: App {
-    let persistenceController = CoreDataManager.shared
+    let context = CoreDataManager.shared.persistentContainer.viewContext
 
     var body: some Scene {
         WindowGroup {
             /*ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)*/
+                .environment(\.managedObjectContext, context)*/
             
             TabBar()
+                .environment(\.managedObjectContext, context)
         }
     }
 }

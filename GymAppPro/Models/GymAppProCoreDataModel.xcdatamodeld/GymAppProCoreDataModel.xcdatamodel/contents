@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ExerciseEntity" representedClassName="ExerciseEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="muscle" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="timeAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="originSession_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SessionEntity" inverseName="exercises_" inverseEntity="SessionEntity"/>
+        <relationship name="setsPerformed_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SetEntity" inverseName="setOrigin_" inverseEntity="SetEntity"/>
+    </entity>
+    <entity name="SessionEntity" representedClassName="SessionEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="shortName" optional="YES" attributeType="String"/>
+        <relationship name="exercises_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExerciseEntity" inverseName="originSession_" inverseEntity="ExerciseEntity"/>
+    </entity>
+    <entity name="SetEntity" representedClassName="SetEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="reps" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="timeAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="setOrigin_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ExerciseEntity" inverseName="setsPerformed_" inverseEntity="ExerciseEntity"/>
+    </entity>
+    <elements>
+        <element name="ExerciseEntity" positionX="-109.71435546875" positionY="1.830841064453125" width="128" height="119"/>
+        <element name="SessionEntity" positionX="-344.513671875" positionY="-51.925537109375" width="128" height="103"/>
+        <element name="SetEntity" positionX="-97.790771484375" positionY="186.6121215820312" width="128" height="104"/>
+    </elements>
+</model>

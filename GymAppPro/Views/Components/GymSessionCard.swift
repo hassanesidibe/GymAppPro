@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct GymSessionCard: View {
     
-    var session: GymSessionEntity
+    var session: SessionEntity
+    let context: NSManagedObjectContext
     
-    init(_ session: GymSessionEntity) { self.session = session }
+    init(_ session: SessionEntity, context: NSManagedObjectContext) {
+        self.session = session
+        self.context = context
+    }
     
 var body: some View {
         

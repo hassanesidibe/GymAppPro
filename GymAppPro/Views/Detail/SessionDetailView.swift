@@ -6,12 +6,38 @@
 //
 
 import SwiftUI
+import CoreData
 
+
+//This view shows the details of a Gym session. So it will display the excercises performed with the sets performed
 struct SessionDetailView: View {
-    var session: GymSession
+    private var session: SessionEntity
+    private var exercises: [ExerciseEntity]
+    private var context: NSManagedObjectContext
     @State private var showNewExerciseView = false
     
+    init(session: SessionEntity, context: NSManagedObjectContext) {
+        self.session = session
+        self.context = context
+        self.exercises = ExerciseEntity.allExercisesForSession(session, context: context)
+    }
+    
     var body: some View {
+        
+        VStack {
+            //Place Session Image here
+            
+            Text(session.unwrappedShortName)
+            
+            ForEach(exercises) {exercise in
+                //Display the exercise title
+//                Text(exercise.unwrappedName)
+                
+                ExerciseDetailView(exercise: exercise, context: context)
+                
+            }
+            
+        }
        
 //        ScrollView {
 //                //Use asyncImage in a loop to display the images for all the muscles the user worked on during that gym session.
@@ -26,81 +52,11 @@ struct SessionDetailView: View {
 //            }
 //        }
         
-        ScrollView {
-            VStack {
-                
-//                sessionDateView
-                GymSessionMuscleImages(session: session)
-                
-                VStack {
-                    musclesNameView
-                    
-                    VStack {
-                        //This will show the last exercise that was adder in the begining of the list
-                        ForEach(session.exercises.reversed()) {exercise in
-                                
-                                if !exercise.sets.isEmpty {
-                                    SetsListView(exercise: exercise)
-                                }
-                                
-                            }
-                    }
-                }
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    showNewExerciseView = true
-                }) {
-//                    Image(systemName: "plus")
-                    Text("New Exercise")
-                }
-            }
-        }
-        
-        .sheet(isPresented: $showNewExerciseView) {
-            NewExerciseView()
-        }
-        .navigationTitle(Text(session.getDateAsString()))
-        .navigationBarTitleDisplayMode(.inline)
-        
-    }
-    
-    /*
-    var sessionDateView: some View {
-        Text(session.getDateAsString())
-            .font(.title3)
-    }*/
-    
-   /* var newExerciseButton: some View {
-        HStack {
-            Spacer()
-            Button(action: {
-                //Present NewExerciseView
-                showNewExerciseView = true
-            }) {
-                Image(systemName: "plus").font(.title)
-                    .padding(.trailing)
-            }
-            .sheet(isPresented: $showNewExerciseView) {
-                NewExerciseView()
-            }
-        }
-    }*/
-    
-    var musclesNameView: some View {
-        HStack {
-            Text(allMusclesWorkedDuringSession(session.exercises))
-                .font(.headline)
-                .padding(.leading)
-        }
-        .font(.largeTitle)
     }
 }
 
-struct SessionDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        SessionDetailView(session: DemoModel.allGymSessions[0])
-    }
-}
+//struct SessionDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SessionDetailView(session: DemoModel.allGymSessions[0])
+//    }
+//}

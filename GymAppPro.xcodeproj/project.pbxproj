@@ -29,8 +29,12 @@
 		454917452800E2040022ED0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454917442800E2040022ED0B /* Preview Assets.xcassets */; };
 		4557F8522808D3AE00AB853A /* NewExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F8512808D3AE00AB853A /* NewExerciseView.swift */; };
 		456F9B1A2849531200BF5DA4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B192849531200BF5DA4 /* CoreDataManager.swift */; };
-		456F9B1C2849561500BF5DA4 /* GymSessionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1B2849561500BF5DA4 /* GymSessionVM.swift */; };
-		456F9B2028497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B1F28497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift */; };
+		4571D98128511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4571D97F28511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld */; };
+		4571D984285121F40043FBAE /* SessionEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D983285121F40043FBAE /* SessionEntityExtension.swift */; };
+		4571D9862851222D0043FBAE /* ExerciseEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D9852851222D0043FBAE /* ExerciseEntityExtension.swift */; };
+		4571D988285122520043FBAE /* SetEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D987285122520043FBAE /* SetEntityExtension.swift */; };
+		4571D98A285122F90043FBAE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D989285122F90043FBAE /* ViewModel.swift */; };
+		4574D26228525DE6004A0D80 /* NewSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4574D26128525DE6004A0D80 /* NewSetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +60,12 @@
 		454917442800E2040022ED0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4557F8512808D3AE00AB853A /* NewExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseView.swift; sourceTree = "<group>"; };
 		456F9B192849531200BF5DA4 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		456F9B1B2849561500BF5DA4 /* GymSessionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSessionVM.swift; sourceTree = "<group>"; tabWidth = 4; };
-		456F9B1F28497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewViewModel.swift; sourceTree = "<group>"; };
+		4571D98028511F490043FBAE /* GymAppProCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymAppProCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		4571D983285121F40043FBAE /* SessionEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEntityExtension.swift; sourceTree = "<group>"; };
+		4571D9852851222D0043FBAE /* ExerciseEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseEntityExtension.swift; sourceTree = "<group>"; };
+		4571D987285122520043FBAE /* SetEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEntityExtension.swift; sourceTree = "<group>"; };
+		4571D989285122F90043FBAE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		4574D26128525DE6004A0D80 /* NewSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +93,7 @@
 		454756AF280775EE0033623A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				456F9B1B2849561500BF5DA4 /* GymSessionVM.swift */,
-				456F9B1F28497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift */,
+				4571D989285122F90043FBAE /* ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -97,6 +104,7 @@
 				454756C8280778B80033623A /* Exercise.swift */,
 				454756CA280778D10033623A /* GymSession.swift */,
 				454756CC280778F70033623A /* ExtensionsAndUtilities.swift */,
+				4571D97F28511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,6 +140,7 @@
 				454756C42807786B0033623A /* GymSessionList.swift */,
 				454756C62807788C0033623A /* GymSessionMuscleImages.swift */,
 				454756CE28077A680033623A /* SetsListView.swift */,
+				4574D26128525DE6004A0D80 /* NewSetView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -158,6 +167,7 @@
 				4549173D2800E2040022ED0B /* GymAppProApp.swift */,
 				456F9B18284952EE00BF5DA4 /* Managers */,
 				454756AE280775D90033623A /* Views */,
+				4571D982285121BC0043FBAE /* EntityExtensions */,
 				454756AF280775EE0033623A /* ViewModels */,
 				454756B0280775FC0033623A /* Models */,
 				454917412800E2040022ED0B /* Assets.xcassets */,
@@ -180,6 +190,16 @@
 				456F9B192849531200BF5DA4 /* CoreDataManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		4571D982285121BC0043FBAE /* EntityExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				4571D983285121F40043FBAE /* SessionEntityExtension.swift */,
+				4571D9852851222D0043FBAE /* ExerciseEntityExtension.swift */,
+				4571D987285122520043FBAE /* SetEntityExtension.swift */,
+			);
+			path = EntityExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,20 +284,24 @@
 				454756CD280778F70033623A /* ExtensionsAndUtilities.swift in Sources */,
 				454756BD280776DB0033623A /* SettingsView.swift in Sources */,
 				454756C9280778B80033623A /* Exercise.swift in Sources */,
+				4571D984285121F40043FBAE /* SessionEntityExtension.swift in Sources */,
 				456F9B1A2849531200BF5DA4 /* CoreDataManager.swift in Sources */,
 				454917402800E2040022ED0B /* ContentView.swift in Sources */,
-				456F9B2028497DFF00BF5DA4 /* ExerciseDetailViewViewModel.swift in Sources */,
 				454756C52807786B0033623A /* GymSessionList.swift in Sources */,
 				454756B7280776890033623A /* HomeView.swift in Sources */,
+				4571D988285122520043FBAE /* SetEntityExtension.swift in Sources */,
 				454756BF280778010033623A /* SessionDetailView.swift in Sources */,
 				454756B9280776A40033623A /* ProgressView.swift in Sources */,
 				454756C1280778280033623A /* ExerciseDetailView.swift in Sources */,
 				454756CF28077A680033623A /* SetsListView.swift in Sources */,
 				454756CB280778D10033623A /* GymSession.swift in Sources */,
 				4557F8522808D3AE00AB853A /* NewExerciseView.swift in Sources */,
+				4571D9862851222D0043FBAE /* ExerciseEntityExtension.swift in Sources */,
 				454756C72807788C0033623A /* GymSessionMuscleImages.swift in Sources */,
-				456F9B1C2849561500BF5DA4 /* GymSessionVM.swift in Sources */,
 				4549173E2800E2040022ED0B /* GymAppProApp.swift in Sources */,
+				4571D98128511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld in Sources */,
+				4571D98A285122F90043FBAE /* ViewModel.swift in Sources */,
+				4574D26228525DE6004A0D80 /* NewSetView.swift in Sources */,
 				454756B52807766B0033623A /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +524,19 @@
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		4571D97F28511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4571D98028511F490043FBAE /* GymAppProCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 4571D98028511F490043FBAE /* GymAppProCoreDataModel.xcdatamodel */;
+			path = GymAppProCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 454917322800E2040022ED0B /* Project object */;
 }

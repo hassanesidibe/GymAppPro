@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GymSessionMuscleImages: View {
+/*struct GymSessionMuscleImages: View {
     let session: GymSession
     let scrollDirection: Axis.Set = .horizontal
     
@@ -85,3 +85,5 @@ struct GymSessionMuscleImages_Previews: PreviewProvider {
         GymSessionMuscleImages(session: DemoModel.allGymSessions[0])
     }
 }
+
+*/

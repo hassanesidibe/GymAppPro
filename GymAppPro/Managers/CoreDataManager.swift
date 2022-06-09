@@ -13,7 +13,7 @@ class CoreDataManager {
     let persistentContainer: NSPersistentContainer
     
     init() {
-        persistentContainer = NSPersistentContainer(name: "GymSessionDataModel")
+        persistentContainer = NSPersistentContainer(name: "GymAppProCoreDataModel")
         persistentContainer.loadPersistentStores {desciption, error in
             if let error = error {
                 print("Error loading Core data: \(error)")

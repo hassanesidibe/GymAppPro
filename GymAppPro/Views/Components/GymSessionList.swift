@@ -10,18 +10,22 @@ import CoreData
 
 struct GymSessionList: View {
     
+    private var sessions: [SessionEntity]
     private var context: NSManagedObjectContext
-    private var sessionListViewMV
     
-    init(context: NSManagedObjectContext) { self.context = context }
+    init(sessions: [SessionEntity], context: NSManagedObjectContext) {
+        self.sessions = sessions
+        self.context = context
+    }
     
     var body: some View {
         
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 20)], spacing: 20) {
             ForEach(sessions) {session in
                 
-                NavigationLink(destination: SessionDetailView(session: session)) {
-                    GymSessionCard(session: session)
+                NavigationLink(destination: SessionDetailView(session: session, context: self.context)) {
+                    Text(session.shortName ?? "Unknown short name")
+//                    GymSessionCard(session: session)
 //                    ScrollableGymSessionCard(exrecises: session.exercises)
                 }
             }
@@ -29,10 +33,10 @@ struct GymSessionList: View {
     }
 }
 
-struct GymSessionList_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        let context = CoreDataManager.shared.persistentContainer.viewContext
-        GymSessionList(context: context)
-    }
-}
+//struct GymSessionList_Previews: PreviewProvider {
+//    static var previews: some View {
+//
+//        let context = CoreDataManager.shared.persistentContainer.viewContext
+//        GymSessionList(context: context)
+//    }
+//}

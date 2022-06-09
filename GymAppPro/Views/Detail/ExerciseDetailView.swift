@@ -11,23 +11,44 @@ import CoreData
 //This view takes an exercise and displays the details about the exercise, including the sets that were performed
 struct ExerciseDetailView: View {
     
-    @ObservedObject var exerciseDetailViewMV: ExerciseDetailViewViewModel
+    private var exercise: ExerciseEntity
     private var context: NSManagedObjectContext
+    @State private var isPresentedNewSetSheet = false
     
-//    init(session: GymSessionEntity, vm: ExerciseDetailViewViewModel) {
-    init(session: GymSessionEntity, context: NSManagedObjectContext) {
+    init(exercise: ExerciseEntity, context: NSManagedObjectContext) {
+        self.exercise = exercise
         self.context = context
-        self.exerciseDetailViewMV = ExerciseDetailViewViewModel(session: session, context: context)
     }
     
     var body: some View {
         
+        let sets = SetEntity.getAllSetsForExercise(exercise, context: context)
+        
         NavigationView {
-            List {
-                ForEach(exerciseDetailViewMV.exercises) {execise in
-                    Text(execise.unwrappedInfo)
+            
+            VStack {
+                //place image here
+                Text("Place nice image here")
+                
+                HStack {
+                    Text(exercise.unwrappedName)
+                    Spacer()
+                    addNewSetButton
+                }
+                
+                ForEach(sets) {exerciseSet in
+                    Text("\(exerciseSet.weight)lb X \(exerciseSet.reps) reps")
                 }
             }
+        }
+        .sheet(isPresented: $isPresentedNewSetSheet) {
+            NewSetView(exercise, context: context)
+        }
+    }
+    
+    var addNewSetButton: some View {
+        Button("New Set") {
+            isPresentedNewSetSheet = true
         }
     }
 }
