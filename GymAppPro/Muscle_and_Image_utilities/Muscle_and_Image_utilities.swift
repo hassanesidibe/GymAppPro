@@ -1,51 +1,11 @@
 //
-//  Exercise.swift
+//  Muscle_and_Image_utilities.swift
 //  GymAppPro
 //
-//  Created by Hassane Sidibe on 4/13/22.
+//  Created by Hassane Sidibe on 6/10/22.
 //
 
 import Foundation
-
-struct Exercise: Identifiable {
-    
-    init(_ name: String, _ muscle: Muscle) {
-        self.name = name
-        self.muscle = muscle
-        sets = []
-        demonstartionVideURL = nil
-    }
-    
-    init(_ name: String, _ muscle: Muscle, sets: [ExerciseSet]) {
-        self.name = name
-        self.muscle = muscle
-        self.sets = sets
-        demonstartionVideURL = nil
-    }
-    
-    let id = UUID()
-    let name: String
-    let muscle: Muscle
-    var setNumber = 0
-    var sets: [ExerciseSet]
-    var demonstartionVideURL: String?
-    
-    mutating func addSet(weight: Double, reps: Int) {
-        setNumber += 1
-        let newSet = ExerciseSet(setNum: setNumber, weight: weight, reps: reps)
-        sets.append(newSet)
-    }
-    
-    
-}
-
-struct ExerciseSet: Identifiable {
-    let id = UUID()
-    let setNum: Int
-    let weight: Double
-    let reps: Int
-}
-
 
 enum Muscle: String, CaseIterable {
     case chest = "Pectoralis Major"
@@ -80,4 +40,5 @@ enum MuscleImageLink: String {
     case glutes = "https://www.bodybuilding.com/images/2016/december/the-guys-guide-to-great-glutes-tall-v2.jpg"
     case trapezius = "http://cdn.shopify.com/s/files/1/1901/6815/articles/new_cover_traps_600x.png?v=1531458740"
 }
+
 

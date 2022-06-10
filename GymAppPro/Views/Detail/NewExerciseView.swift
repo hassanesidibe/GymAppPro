@@ -6,11 +6,20 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct NewExerciseView: View {
+    @Environment(\.presentationMode) private var presentationMode
+    private var session: SessionEntity
+    private var context: NSManagedObjectContext
     @State private var exerciseName = ""
     @State private var muscle: Muscle = .back
-    @State private var videoLink = ""
+//    @State private var videoLink = ""
+    
+    init(session: SessionEntity, context: NSManagedObjectContext) {
+        self.session = session
+        self.context = context
+    }
     
     var body: some View {
         
@@ -29,19 +38,17 @@ struct NewExerciseView: View {
                     .pickerStyle(.menu)
                 }
                 
-                Section(header: Text("Demonstartion Youtube video")) {
-                    TextField("", text: $videoLink)
-                }
+//                Section(header: Text("Demonstartion Youtube video")) {
+//                    TextField("", text: $videoLink)
+//                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                       //Add the exercise to the gym session that the add exercise was pressed for, and dismiss this view
-                        
-                        
-                    }) {
-                        Text("Done")
+                    Button("Save exercise") {
+                        saveExercise()
+                        self.presentationMode.wrappedValue.dismiss()
                     }
+                    .disabled(exerciseName.isEmpty)
                 }
             }
             
@@ -49,10 +56,20 @@ struct NewExerciseView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-}
-
-struct NewExerciseView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewExerciseView()
+    
+    func saveExercise() {
+        let newExercise = ExerciseEntity(context: context)
+        newExercise.id = UUID()
+        newExercise.timeAdded = Date()
+        newExercise.name = exerciseName
+        newExercise.muscle = muscle.rawValue
+        newExercise.originSession_ = session
+        try? context.save()
     }
 }
+
+//struct NewExerciseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewExerciseView()
+//    }
+//}

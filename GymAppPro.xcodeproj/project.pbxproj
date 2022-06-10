@@ -19,15 +19,13 @@
 		454756C32807784C0033623A /* GymSessionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756C22807784C0033623A /* GymSessionCard.swift */; };
 		454756C52807786B0033623A /* GymSessionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756C42807786B0033623A /* GymSessionList.swift */; };
 		454756C72807788C0033623A /* GymSessionMuscleImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756C62807788C0033623A /* GymSessionMuscleImages.swift */; };
-		454756C9280778B80033623A /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756C8280778B80033623A /* Exercise.swift */; };
-		454756CB280778D10033623A /* GymSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756CA280778D10033623A /* GymSession.swift */; };
-		454756CD280778F70033623A /* ExtensionsAndUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756CC280778F70033623A /* ExtensionsAndUtilities.swift */; };
 		454756CF28077A680033623A /* SetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756CE28077A680033623A /* SetsListView.swift */; };
 		4549173E2800E2040022ED0B /* GymAppProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549173D2800E2040022ED0B /* GymAppProApp.swift */; };
 		454917402800E2040022ED0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549173F2800E2040022ED0B /* ContentView.swift */; };
 		454917422800E2040022ED0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454917412800E2040022ED0B /* Assets.xcassets */; };
 		454917452800E2040022ED0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454917442800E2040022ED0B /* Preview Assets.xcassets */; };
 		4557F8522808D3AE00AB853A /* NewExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F8512808D3AE00AB853A /* NewExerciseView.swift */; };
+		4562305B2853EBC300B381DA /* Muscle_and_Image_utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562305A2853EBC300B381DA /* Muscle_and_Image_utilities.swift */; };
 		456F9B1A2849531200BF5DA4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B192849531200BF5DA4 /* CoreDataManager.swift */; };
 		4571D98128511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4571D97F28511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld */; };
 		4571D984285121F40043FBAE /* SessionEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D983285121F40043FBAE /* SessionEntityExtension.swift */; };
@@ -49,9 +47,6 @@
 		454756C22807784C0033623A /* GymSessionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSessionCard.swift; sourceTree = "<group>"; };
 		454756C42807786B0033623A /* GymSessionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSessionList.swift; sourceTree = "<group>"; };
 		454756C62807788C0033623A /* GymSessionMuscleImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSessionMuscleImages.swift; sourceTree = "<group>"; };
-		454756C8280778B80033623A /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		454756CA280778D10033623A /* GymSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymSession.swift; sourceTree = "<group>"; };
-		454756CC280778F70033623A /* ExtensionsAndUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsAndUtilities.swift; sourceTree = "<group>"; };
 		454756CE28077A680033623A /* SetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsListView.swift; sourceTree = "<group>"; };
 		4549173A2800E2040022ED0B /* GymAppPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymAppPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4549173D2800E2040022ED0B /* GymAppProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymAppProApp.swift; sourceTree = "<group>"; };
@@ -59,6 +54,7 @@
 		454917412800E2040022ED0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		454917442800E2040022ED0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4557F8512808D3AE00AB853A /* NewExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseView.swift; sourceTree = "<group>"; };
+		4562305A2853EBC300B381DA /* Muscle_and_Image_utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscle_and_Image_utilities.swift; sourceTree = "<group>"; };
 		456F9B192849531200BF5DA4 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4571D98028511F490043FBAE /* GymAppProCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymAppProCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		4571D983285121F40043FBAE /* SessionEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEntityExtension.swift; sourceTree = "<group>"; };
@@ -93,6 +89,7 @@
 		454756AF280775EE0033623A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				456F9B192849531200BF5DA4 /* CoreDataManager.swift */,
 				4571D989285122F90043FBAE /* ViewModel.swift */,
 			);
 			path = ViewModels;
@@ -101,9 +98,6 @@
 		454756B0280775FC0033623A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				454756C8280778B80033623A /* Exercise.swift */,
-				454756CA280778D10033623A /* GymSession.swift */,
-				454756CC280778F70033623A /* ExtensionsAndUtilities.swift */,
 				4571D97F28511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld */,
 			);
 			path = Models;
@@ -165,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				4549173D2800E2040022ED0B /* GymAppProApp.swift */,
-				456F9B18284952EE00BF5DA4 /* Managers */,
+				456230592853EB9600B381DA /* Muscle_and_Image_utilities */,
 				454756AE280775D90033623A /* Views */,
 				4571D982285121BC0043FBAE /* EntityExtensions */,
 				454756AF280775EE0033623A /* ViewModels */,
@@ -184,12 +178,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		456F9B18284952EE00BF5DA4 /* Managers */ = {
+		456230592853EB9600B381DA /* Muscle_and_Image_utilities */ = {
 			isa = PBXGroup;
 			children = (
-				456F9B192849531200BF5DA4 /* CoreDataManager.swift */,
+				4562305A2853EBC300B381DA /* Muscle_and_Image_utilities.swift */,
 			);
-			path = Managers;
+			path = Muscle_and_Image_utilities;
 			sourceTree = "<group>";
 		};
 		4571D982285121BC0043FBAE /* EntityExtensions */ = {
@@ -281,9 +275,7 @@
 				453F309B280CC144008FA672 /* ExerciseTutorialView.swift in Sources */,
 				454756BB280776BC0033623A /* NewSessionView.swift in Sources */,
 				454756C32807784C0033623A /* GymSessionCard.swift in Sources */,
-				454756CD280778F70033623A /* ExtensionsAndUtilities.swift in Sources */,
 				454756BD280776DB0033623A /* SettingsView.swift in Sources */,
-				454756C9280778B80033623A /* Exercise.swift in Sources */,
 				4571D984285121F40043FBAE /* SessionEntityExtension.swift in Sources */,
 				456F9B1A2849531200BF5DA4 /* CoreDataManager.swift in Sources */,
 				454917402800E2040022ED0B /* ContentView.swift in Sources */,
@@ -294,7 +286,7 @@
 				454756B9280776A40033623A /* ProgressView.swift in Sources */,
 				454756C1280778280033623A /* ExerciseDetailView.swift in Sources */,
 				454756CF28077A680033623A /* SetsListView.swift in Sources */,
-				454756CB280778D10033623A /* GymSession.swift in Sources */,
+				4562305B2853EBC300B381DA /* Muscle_and_Image_utilities.swift in Sources */,
 				4557F8522808D3AE00AB853A /* NewExerciseView.swift in Sources */,
 				4571D9862851222D0043FBAE /* ExerciseEntityExtension.swift in Sources */,
 				454756C72807788C0033623A /* GymSessionMuscleImages.swift in Sources */,

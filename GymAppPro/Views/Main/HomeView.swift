@@ -10,23 +10,36 @@ import CoreData
 
 struct HomeView: View {
     
-    @ObservedObject var vm: ViewModel
+//    @ObservedObject var vm: ViewModel
     let viewContext: NSManagedObjectContext
+    @State private var showNewSessionView = false
     
     init() {
-        self.viewContext = CoreDataManager.shared.persistentContainer.viewContext
-        self.vm = ViewModel(context: viewContext)
+        self.viewContext = CoreDataManager.shared.container.viewContext
     }
     
     var body: some View {
         
         NavigationView {
             ScrollView {
-                
-                
-                GymSessionList(sessions: vm.sessions, context: viewContext)
+                GymSessionList(context: viewContext)
+            }
+            
+            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showNewSessionView = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                }
             }
             .navigationTitle("Home")
+            .sheet(isPresented: $showNewSessionView) {
+                
+                NewSessionView(context: viewContext)
+            }
         }
     }
 }

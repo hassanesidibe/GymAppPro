@@ -14,6 +14,10 @@ extension ExerciseEntity {
         name ?? "Unknown name"
     }
     
+    var unwrappedMuscle: String {
+        muscle ?? "Unknown muscle"
+    }
+    
     var setsPerformed: Set<SetEntity> {
         get { (setsPerformed_ as? Set<SetEntity>) ?? []}
         
@@ -24,6 +28,8 @@ extension ExerciseEntity {
         let newExercise = ExerciseEntity(context: context)
         newExercise.id = exercise.id
         newExercise.name = exercise.name
+        newExercise.muscle = exercise.muscle
+        newExercise.timeAdded = Date()
         newExercise.originSession_ = session
         try? context.save()
     }
@@ -33,7 +39,7 @@ extension ExerciseEntity {
         
         let request = NSFetchRequest<SessionEntity>(entityName: "SessionEntity")
         request.predicate = NSPredicate(format: "id = %@", session.id! as CVarArg)
-        request.sortDescriptors = [NSSortDescriptor(key: "timeAdded", ascending: false)] //This will sort the request
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)] //This will sort the request
         
         
         let sessions = (try? context.fetch(request)) ?? []  //Sorting the request will return an array instead of an NSSet

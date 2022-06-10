@@ -20,7 +20,7 @@ extension SessionEntity {
         shortName ?? "Unknown short name"
     }
     
-    static func withId(_ sessionId: UUID, context: NSManagedObjectContext) -> SessionEntity {
+    static func withId(_ sessionId: UUID, context: NSManagedObjectContext, _ sessionName: String = "No name") -> SessionEntity {
         //look up the GymSession
         let request = NSFetchRequest<SessionEntity>(entityName: "SessionEntity")
         request.predicate = NSPredicate(format: "id = %@", sessionId as CVarArg)
@@ -37,10 +37,20 @@ extension SessionEntity {
             let newSession = SessionEntity(context: context)
             newSession.id = sessionId
             newSession.date = Date()
+            newSession.shortName = sessionName
             try? context.save()
         }
         
         fatalError()
+    }
+    
+    static func newSession(name: String, context: NSManagedObjectContext) {
+        let newSession = SessionEntity(context: context)
+        newSession.id = UUID()
+        newSession.date = Date()
+        newSession.shortName = name
+        try? context.save()
+        print("Session add successfully!")
     }
     
     static func getAllSessions(context: NSManagedObjectContext) -> [SessionEntity] {

@@ -21,10 +21,10 @@ struct TabBar: View {
                     Label("Progress", systemImage: "chart.line.uptrend.xyaxis")
                 }
             
-            NewSessionView()
-                .tabItem {
-                    Label("New session", systemImage: "plus")
-                }
+//            NewSessionView()
+//                .tabItem {
+//                    Label("New session", systemImage: "plus")
+//                }
             
             ExerciseTutorialView()
                 .tabItem {

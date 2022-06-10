@@ -27,24 +27,29 @@ struct SessionDetailView: View {
         VStack {
             //Place Session Image here
             
-            Text(session.unwrappedShortName)
+            HStack {
+                Text(session.unwrappedShortName)
+                Spacer()
+                AddNewExerciseButton
+            }
+            .sheet(isPresented: $showNewExerciseView) {
+                NewExerciseView(session: session, context: context)
+            }
             
             ForEach(exercises) {exercise in
                 //Display the exercise title
-//                Text(exercise.unwrappedName)
-                
                 ExerciseDetailView(exercise: exercise, context: context)
-                
             }
             
         }
+        
+        
        
 //        ScrollView {
 //                //Use asyncImage in a loop to display the images for all the muscles the user worked on during that gym session.
 //            GymSessionMuscleImages(session: session)
 //
 //            musclesNameView
-//
 //            VStack {
 //                ForEach(session.exercises) {exercise in
 //                    SetsListView(exercise: exercise)
@@ -53,7 +58,15 @@ struct SessionDetailView: View {
 //        }
         
     }
+    
+    var AddNewExerciseButton: some View {
+        Button("New Exercise") {
+            showNewExerciseView = true
+        }
+    }
 }
+
+
 
 //struct SessionDetailView_Previews: PreviewProvider {
 //    static var previews: some View {

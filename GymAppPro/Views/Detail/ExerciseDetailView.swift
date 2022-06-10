@@ -24,7 +24,7 @@ struct ExerciseDetailView: View {
         
         let sets = SetEntity.getAllSetsForExercise(exercise, context: context)
         
-        NavigationView {
+//        NavigationView {
             
             VStack {
                 //place image here
@@ -40,7 +40,7 @@ struct ExerciseDetailView: View {
                     Text("\(exerciseSet.weight)lb X \(exerciseSet.reps) reps")
                 }
             }
-        }
+//        }
         .sheet(isPresented: $isPresentedNewSetSheet) {
             NewSetView(exercise, context: context)
         }

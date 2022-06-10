@@ -9,15 +9,18 @@ import SwiftUI
 
 @main
 struct GymAppProApp: App {
-    let context = CoreDataManager.shared.persistentContainer.viewContext
+//    let context = CoreDataManager.shared.persistentContainer.viewContext
 
     var body: some Scene {
         WindowGroup {
             /*ContentView()
                 .environment(\.managedObjectContext, context)*/
             
-            TabBar()
-                .environment(\.managedObjectContext, context)
+//            TabBar()
+//                .environment(\.managedObjectContext, context)
+            
+            HomeView()
+                .environment(\.managedObjectContext, CoreDataManager.shared.container.viewContext)
         }
     }
 }

@@ -42,14 +42,7 @@ struct NewSetView: View {
     }
     
     private func addSet() {
-        let newSet = SetEntity(context: self.context)
-        newSet.id  = UUID()
-        newSet.timeAdded = Date()
-        newSet.weight = weightAsDouble
-        newSet.reps = repsAsDouble
-        newSet.setOrigin_ = self.exercise
-        try? context.save()
-        
+        SetEntity.newSet(weight: weightAsDouble, reps: repsAsDouble, addTo: exercise, context: context)
     }
 }
 

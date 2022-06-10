@@ -10,11 +10,13 @@ import CoreData
 
 class CoreDataManager {
     static let shared = CoreDataManager()
-    let persistentContainer: NSPersistentContainer
+    let container: NSPersistentContainer
     
     init() {
-        persistentContainer = NSPersistentContainer(name: "GymAppProCoreDataModel")
-        persistentContainer.loadPersistentStores {desciption, error in
+        print("Hello Hassane from core data manager")
+        
+        container = NSPersistentContainer(name: "GymAppProCoreDataModel")
+        container.loadPersistentStores {desciption, error in
             if let error = error {
                 print("Error loading Core data: \(error)")
                 return
