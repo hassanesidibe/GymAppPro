@@ -110,7 +110,6 @@
 				454756B42807766B0033623A /* TabBar.swift */,
 				454756B6280776890033623A /* HomeView.swift */,
 				454756B8280776A40033623A /* ProgressView.swift */,
-				454756BA280776BC0033623A /* NewSessionView.swift */,
 				454756BC280776DB0033623A /* SettingsView.swift */,
 				453F309A280CC144008FA672 /* ExerciseTutorialView.swift */,
 			);
@@ -120,9 +119,11 @@
 		454756B22807761D0033623A /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				454756BA280776BC0033623A /* NewSessionView.swift */,
 				454756BE280778010033623A /* SessionDetailView.swift */,
 				454756C0280778280033623A /* ExerciseDetailView.swift */,
 				4557F8512808D3AE00AB853A /* NewExerciseView.swift */,
+				4574D26128525DE6004A0D80 /* NewSetView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -134,7 +135,6 @@
 				454756C42807786B0033623A /* GymSessionList.swift */,
 				454756C62807788C0033623A /* GymSessionMuscleImages.swift */,
 				454756CE28077A680033623A /* SetsListView.swift */,
-				4574D26128525DE6004A0D80 /* NewSetView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";

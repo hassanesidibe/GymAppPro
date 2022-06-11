@@ -15,6 +15,7 @@ struct SessionDetailView: View {
     private var exercises: [ExerciseEntity]
     private var context: NSManagedObjectContext
     @State private var showNewExerciseView = false
+    @State private var showNewSetView = false
     
     init(session: SessionEntity, context: NSManagedObjectContext) {
         self.session = session
@@ -24,24 +25,72 @@ struct SessionDetailView: View {
     
     var body: some View {
         
-        VStack {
-            //Place Session Image here
-            
-            HStack {
-                Text(session.unwrappedShortName)
-                Spacer()
-                AddNewExerciseButton
+            ScrollView {
+                AsyncImage(url: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBsWaMMH2fU9E-0mtcDZzScolvVJ8Ly_T6vw&usqp=CAU")) {image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                    
+                } placeholder: {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                        .foregroundColor(.white).opacity(0.8)
+                }
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(session.unwrappedShortName)
+                            .font(.largeTitle)
+                            .bold()
+                    }
+                    
+                    Spacer()
+                    Button("New exercise") {
+                        showNewExerciseView = true
+                    }
+                    .sheet(isPresented: $showNewExerciseView) {
+                        NewExerciseView(session: session, context: context)
+                    }
+                    
+                }
+                .padding([.leading, .trailing])
+                
+                
+                VStack {
+                    
+                    ForEach(exercises) { exercise in
+                        HStack {
+                            Text(exercise.unwrappedName)
+                                .font(.title3)
+                                .bold()
+                                .foregroundColor(.red)
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                //show new NewSetView
+                                showNewSetView = true
+                            }) {
+                                Image(systemName: "plus")
+                            }
+                        }
+                        .padding()
+                        
+                        .sheet(isPresented: $showNewSetView) {
+                            NewSetView(exercise, context: context)
+                        }
+                        
+                        
+                        
+                        ExerciseDetailView(exercise: exercise, context: context)
+//                        ExerciseDetailView(exercise: exercise)
+                    }
+                    
+                }
+                
             }
-            .sheet(isPresented: $showNewExerciseView) {
-                NewExerciseView(session: session, context: context)
-            }
-            
-            ForEach(exercises) {exercise in
-                //Display the exercise title
-                ExerciseDetailView(exercise: exercise, context: context)
-            }
-            
-        }
         
         
        

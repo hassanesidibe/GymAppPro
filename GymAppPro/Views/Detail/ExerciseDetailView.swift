@@ -8,14 +8,15 @@
 import SwiftUI
 import CoreData
 
-//This view takes an exercise and displays the details about the exercise, including the sets that were performed
+//This view takes an exercise and displays the sets performed
 struct ExerciseDetailView: View {
     
     private var exercise: ExerciseEntity
     private var context: NSManagedObjectContext
-    @State private var isPresentedNewSetSheet = false
+//    @State private var isPresentedNewSetSheet = false
     
     init(exercise: ExerciseEntity, context: NSManagedObjectContext) {
+//    init(exercise: ExerciseEntity) {
         self.exercise = exercise
         self.context = context
     }
@@ -24,33 +25,21 @@ struct ExerciseDetailView: View {
         
         let sets = SetEntity.getAllSetsForExercise(exercise, context: context)
         
-//        NavigationView {
-            
-            VStack {
-                //place image here
-                Text("Place nice image here")
-                
-                HStack {
-                    Text(exercise.unwrappedName)
-                    Spacer()
-                    addNewSetButton
-                }
-                
-                ForEach(sets) {exerciseSet in
-                    Text("\(exerciseSet.weight)lb X \(exerciseSet.reps) reps")
-                }
+        ForEach(sets) {exerciseSet in
+            HStack {
+                Text("\(exerciseSet.weight, specifier: "%.0f")lb X \(exerciseSet.reps, specifier: "%.0f") reps")
+                    .font(.title3)
+                Spacer()
             }
-//        }
-        .sheet(isPresented: $isPresentedNewSetSheet) {
-            NewSetView(exercise, context: context)
         }
+        .padding(.leading)
     }
     
-    var addNewSetButton: some View {
-        Button("New Set") {
-            isPresentedNewSetSheet = true
-        }
-    }
+//    var addNewSetButton: some View {
+//        Button("New Set") {
+//            isPresentedNewSetSheet = true
+//        }
+//    }
 }
 
 //struct ExerciseDetailView_Previews: PreviewProvider {

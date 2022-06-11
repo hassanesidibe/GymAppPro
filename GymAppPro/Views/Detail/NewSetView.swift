@@ -30,14 +30,34 @@ struct NewSetView: View {
     
     
     var body: some View {
-        Form {
-            TextField("Weight", text: $weight)
-            TextField("Reps", text: $reps)
-            Button("Add Set") {
-                addSet()
-                self.presentationMode.wrappedValue.dismiss()
+        NavigationView {
+            Form {
+                
+                
+                Section(content: {
+                    TextField("Weight", text: $weight)
+                    TextField("Reps", text: $reps)
+                    Button("Add Set") {
+                        addSet()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    .disabled(weight.isEmpty || reps.isEmpty)
+                    
+                }, header: {
+                        Text(exercise.unwrappedName)
+                })
             }
-            .disabled(weight.isEmpty || reps.isEmpty)
+            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Cancel") {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    .foregroundColor(.red)
+                }
+            }
+            .navigationTitle("New Set")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     

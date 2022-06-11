@@ -38,23 +38,34 @@ struct NewExerciseView: View {
                     .pickerStyle(.menu)
                 }
                 
+                Section {
+                    saveButton
+                }
+                
 //                Section(header: Text("Demonstartion Youtube video")) {
 //                    TextField("", text: $videoLink)
 //                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save exercise") {
-                        saveExercise()
+                    Button("Cancel") {
                         self.presentationMode.wrappedValue.dismiss()
                     }
-                    .disabled(exerciseName.isEmpty)
+                    .foregroundColor(.red)
                 }
             }
             
             .navigationTitle("New Exercise")
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    
+    var saveButton: some View {
+        Button("Save exercise") {
+            saveExercise()
+            self.presentationMode.wrappedValue.dismiss()
+        }
+        .disabled(exerciseName.isEmpty)
     }
     
     func saveExercise() {

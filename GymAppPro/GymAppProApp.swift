@@ -16,11 +16,11 @@ struct GymAppProApp: App {
             /*ContentView()
                 .environment(\.managedObjectContext, context)*/
             
-//            TabBar()
-//                .environment(\.managedObjectContext, context)
-            
-            HomeView()
+            TabBar()
                 .environment(\.managedObjectContext, CoreDataManager.shared.container.viewContext)
+            
+//            HomeView()
+//                .environment(\.managedObjectContext, CoreDataManager.shared.container.viewContext)
         }
     }
 }

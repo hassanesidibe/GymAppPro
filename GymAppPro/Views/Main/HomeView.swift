@@ -11,7 +11,7 @@ import CoreData
 struct HomeView: View {
     
 //    @ObservedObject var vm: ViewModel
-    let viewContext: NSManagedObjectContext
+    var viewContext: NSManagedObjectContext
     @State private var showNewSessionView = false
     
     init() {

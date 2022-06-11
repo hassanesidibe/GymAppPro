@@ -18,14 +18,26 @@ struct NewSessionView: View {
     }
     
     var body: some View {
-        Form {
-            TextField("Name", text: $sessionName)
+        NavigationView {
             
-            Button("Save") {
-                createSession()
-                self.presentationMode.wrappedValue.dismiss()
+            Form {
+                TextField("Name", text: $sessionName)
+                
+                Button("Save") {
+                    createSession()
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                .disabled(sessionName.isEmpty)
             }
-            .disabled(sessionName.isEmpty)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Cancel") {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            }
+            .navigationTitle("New Session")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     

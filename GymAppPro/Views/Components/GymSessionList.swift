@@ -30,7 +30,8 @@ struct GymSessionList: View {
             ForEach(sessions) {session in
                 
                 NavigationLink(destination: SessionDetailView(session: session, context: self.context)) {
-                    Text(session.unwrappedShortName)
+                    GymSessionCard(session)
+//                        .frame(width: 100, height: 100)
                 }
             }
         }
