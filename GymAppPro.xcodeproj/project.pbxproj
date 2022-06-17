@@ -26,6 +26,7 @@
 		454917452800E2040022ED0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454917442800E2040022ED0B /* Preview Assets.xcassets */; };
 		4557F8522808D3AE00AB853A /* NewExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F8512808D3AE00AB853A /* NewExerciseView.swift */; };
 		4562305B2853EBC300B381DA /* Muscle_and_Image_utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562305A2853EBC300B381DA /* Muscle_and_Image_utilities.swift */; };
+		456423B42858F469003FAFB7 /* SetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456423B32858F469003FAFB7 /* SetsViewModel.swift */; };
 		456F9B1A2849531200BF5DA4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B192849531200BF5DA4 /* CoreDataManager.swift */; };
 		4571D98128511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4571D97F28511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld */; };
 		4571D984285121F40043FBAE /* SessionEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D983285121F40043FBAE /* SessionEntityExtension.swift */; };
@@ -55,6 +56,7 @@
 		454917442800E2040022ED0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4557F8512808D3AE00AB853A /* NewExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseView.swift; sourceTree = "<group>"; };
 		4562305A2853EBC300B381DA /* Muscle_and_Image_utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscle_and_Image_utilities.swift; sourceTree = "<group>"; };
+		456423B32858F469003FAFB7 /* SetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsViewModel.swift; sourceTree = "<group>"; };
 		456F9B192849531200BF5DA4 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4571D98028511F490043FBAE /* GymAppProCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymAppProCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		4571D983285121F40043FBAE /* SessionEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEntityExtension.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				456F9B192849531200BF5DA4 /* CoreDataManager.swift */,
 				4571D989285122F90043FBAE /* ViewModel.swift */,
+				456423B32858F469003FAFB7 /* SetsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				4562305B2853EBC300B381DA /* Muscle_and_Image_utilities.swift in Sources */,
 				4557F8522808D3AE00AB853A /* NewExerciseView.swift in Sources */,
 				4571D9862851222D0043FBAE /* ExerciseEntityExtension.swift in Sources */,
+				456423B42858F469003FAFB7 /* SetsViewModel.swift in Sources */,
 				454756C72807788C0033623A /* GymSessionMuscleImages.swift in Sources */,
 				4549173E2800E2040022ED0B /* GymAppProApp.swift in Sources */,
 				4571D98128511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld in Sources */,

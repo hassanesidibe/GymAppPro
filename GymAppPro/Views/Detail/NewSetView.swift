@@ -10,10 +10,12 @@ import CoreData
 
 struct NewSetView: View {
     @Environment(\.presentationMode) private var presentationMode
+    private let exercise: ExerciseEntity
+    @EnvironmentObject var vm: ViewModel
     @State private var weight: String = ""
     @State private var reps: String = ""
-    private var exercise: ExerciseEntity
-    private var context: NSManagedObjectContext
+    
+    @State private var title: String = "Place holder"
     
     private var weightAsDouble: Double {
         Double(self.weight) ?? -1
@@ -23,28 +25,30 @@ struct NewSetView: View {
         Double(self.reps) ?? -1
     }
     
-    init(_ exercise: ExerciseEntity, context: NSManagedObjectContext) {
+    
+    init(addSetTo exercise: ExerciseEntity) {
         self.exercise = exercise
-        self.context = context
     }
     
     
     var body: some View {
         NavigationView {
+            
             Form {
-                
                 
                 Section(content: {
                     TextField("Weight", text: $weight)
                     TextField("Reps", text: $reps)
                     Button("Add Set") {
                         addSet()
+                        title = "Reset to Dummy text"
                         self.presentationMode.wrappedValue.dismiss()
                     }
                     .disabled(weight.isEmpty || reps.isEmpty)
                     
                 }, header: {
-                        Text(exercise.unwrappedName)
+//                        Text(exercise.unwrappedName)
+                    Text(matchingExercise(to: self.exercise).unwrappedName)
                 })
             }
             
@@ -61,8 +65,17 @@ struct NewSetView: View {
         }
     }
     
+    private func matchingExercise(to exercise: ExerciseEntity) -> ExerciseEntity {
+        let mathingExercises = vm.allExercise.filter {$0.id == exercise.id }
+        if let matching = mathingExercises.first {
+            return matching
+        }
+        
+        fatalError("Enable to find a matching exercise\nError occured in NewSetView()")
+    }
+    
     private func addSet() {
-        SetEntity.newSet(weight: weightAsDouble, reps: repsAsDouble, addTo: exercise, context: context)
+        vm.addSet(to: self.exercise, weight: weightAsDouble, reps: repsAsDouble)
     }
 }
 

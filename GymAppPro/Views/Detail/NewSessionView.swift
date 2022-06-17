@@ -10,6 +10,7 @@ import CoreData
 
 struct NewSessionView: View {
     @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject var vm: ViewModel
     let context: NSManagedObjectContext
     @State private var sessionName = ""
     
@@ -43,7 +44,8 @@ struct NewSessionView: View {
     
     func createSession() {
         
-        SessionEntity.newSession(name: sessionName, context: context)
+//        SessionEntity.newSession(name: sessionName, context: context)
+        vm.newSession(sessionName)
         print("createSession() was called")
         
 //        let session = SessionEntity(context: context)

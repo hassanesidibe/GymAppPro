@@ -39,5 +39,12 @@ extension SetEntity {
         }
     }
     
+    static func all(context: NSManagedObjectContext) -> [SetEntity] {
+        let request = NSFetchRequest<SetEntity>(entityName: "SetEntity")
+        let sets = (try? context.fetch(request)) ?? []
+        
+        return sets
+    }
+    
     
 }

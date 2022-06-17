@@ -11,21 +11,38 @@ import CoreData
 //This view takes an exercise and displays the sets performed
 struct ExerciseDetailView: View {
     
+    @EnvironmentObject var vm: ViewModel
     private var exercise: ExerciseEntity
-    private var context: NSManagedObjectContext
-//    @State private var isPresentedNewSetSheet = false
+    @State private var showNewSetView = false
     
-    init(exercise: ExerciseEntity, context: NSManagedObjectContext) {
-//    init(exercise: ExerciseEntity) {
+    init(exercise: ExerciseEntity) {
         self.exercise = exercise
-        self.context = context
     }
     
     var body: some View {
+//        let sets = vm.getAllSetsForExercise(exercise)
         
-        let sets = SetEntity.getAllSetsForExercise(exercise, context: context)
-        
-        ForEach(sets) {exerciseSet in
+        VStack {
+            
+            HStack {
+//                Text(exercise.unwrappedName)
+//                    .font(.title3)
+//                    .bold()
+//                    .foregroundColor(.red)
+                exerciseTitle
+                
+                Spacer()
+                showNewSetButton
+                    .sheet(isPresented: $showNewSetView) {
+                        NewSetView(addSetTo: exercise)
+                            .environmentObject(vm)
+                    }
+            }
+            
+            .padding()
+            
+//        ForEach(sets) {exerciseSet in
+        ForEach(allSetsFor(exercise: self.exercise)) {exerciseSet in
             HStack {
                 Text("\(exerciseSet.weight, specifier: "%.0f")lb X \(exerciseSet.reps, specifier: "%.0f") reps")
                     .font(.title3)
@@ -33,14 +50,31 @@ struct ExerciseDetailView: View {
             }
         }
         .padding(.leading)
+        }
+        
     }
     
-//    var addNewSetButton: some View {
-//        Button("New Set") {
-//            isPresentedNewSetSheet = true
-//        }
-//    }
+    var exerciseTitle: some View {
+        Text(exercise.unwrappedName)
+            .font(.title3)
+            .bold()
+            .foregroundColor(.red)
+    }
+    
+    var showNewSetButton: some View {
+        Button(action: {
+            showNewSetView = true
+        }) {
+            Image(systemName: "plus")
+        }
+    }
+    
+    private func allSetsFor(exercise: ExerciseEntity) -> [SetEntity] {
+        return vm.allSets.filter { $0.setOrigin_ == exercise }
+    }
 }
+
+
 
 //struct ExerciseDetailView_Previews: PreviewProvider {
 //    static var previews: some View {

@@ -45,7 +45,8 @@ struct SetsListView: View {
             .padding()
             .padding()
             .sheet(isPresented: $showAddSetView) {
-                NewSetView(self.exercise, context: self.context)
+//                NewSetView(self.exercise, context: self.context)
+                NewSetView(addSetTo: self.exercise)
             }
         }
     }

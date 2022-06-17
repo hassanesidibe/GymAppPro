@@ -39,7 +39,7 @@ extension ExerciseEntity {
         
         let request = NSFetchRequest<SessionEntity>(entityName: "SessionEntity")
         request.predicate = NSPredicate(format: "id = %@", session.id! as CVarArg)
-        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)] //This will sort the request
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)] //This will sort the request
         
         
         let sessions = (try? context.fetch(request)) ?? []  //Sorting the request will return an array instead of an NSSet
@@ -54,5 +54,11 @@ extension ExerciseEntity {
             //create a new SessionEntity and return it
             return []
         }
+    }
+    
+    static func allExercise(in context: NSManagedObjectContext) -> [ExerciseEntity] {
+        let request = NSFetchRequest<ExerciseEntity>(entityName: "ExerciseEntity")
+        let exercises = (try? context.fetch(request)) ?? []
+        return exercises
     }
 }

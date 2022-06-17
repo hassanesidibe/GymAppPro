@@ -10,6 +10,7 @@ import CoreData
 
 struct NewExerciseView: View {
     @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject var vm: ViewModel
     private var session: SessionEntity
     private var context: NSManagedObjectContext
     @State private var exerciseName = ""
@@ -74,8 +75,11 @@ struct NewExerciseView: View {
         newExercise.timeAdded = Date()
         newExercise.name = exerciseName
         newExercise.muscle = muscle.rawValue
-        newExercise.originSession_ = session
-        try? context.save()
+        
+        vm.addExercise(to: self.session, exercise: newExercise)
+        
+//        newExercise.originSession_ = session
+//        try? context.save()
     }
 }
 
