@@ -9,9 +9,14 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        VStack {
-            Text("Settings")
-            Text("Version 1.0.0")
+        
+        NavigationView {
+            VStack {
+                Text("Settings")
+                Text("Version 1.0.0")
+            }
+            
+            .navigationTitle("Settings")
         }
     }
 }

@@ -25,10 +25,6 @@ struct ExerciseDetailView: View {
         VStack {
             
             HStack {
-//                Text(exercise.unwrappedName)
-//                    .font(.title3)
-//                    .bold()
-//                    .foregroundColor(.red)
                 exerciseTitle
                 
                 Spacer()
@@ -39,17 +35,17 @@ struct ExerciseDetailView: View {
                     }
             }
             
-            .padding()
+//            .padding()
             
 //        ForEach(sets) {exerciseSet in
-        ForEach(allSetsFor(exercise: self.exercise)) {exerciseSet in
-            HStack {
-                Text("\(exerciseSet.weight, specifier: "%.0f")lb X \(exerciseSet.reps, specifier: "%.0f") reps")
-                    .font(.title3)
-                Spacer()
+            ForEach(allSetsFor(exercise: self.exercise)) {exerciseSet in
+                HStack {
+                    Text("\(exerciseSet.weight, specifier: "%.0f")lb X \(exerciseSet.reps, specifier: "%.0f") reps")
+                        .font(.title3)
+                    Spacer()
+                }
             }
-        }
-        .padding(.leading)
+//        .padding(.leading)
         }
         
     }

@@ -12,6 +12,7 @@ struct ExerciseTutorialView: View {
     
     var body: some View {
         
+        NavigationView {
             VStack {
                topBadge
                     .frame(width: 400, height: 90)
@@ -33,6 +34,9 @@ struct ExerciseTutorialView: View {
                 
                 Spacer()
             }
+            
+            .navigationTitle("Tutorials")
+        }
     }
     
     var topBadge: some View {

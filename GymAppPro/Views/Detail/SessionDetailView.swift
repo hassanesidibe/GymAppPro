@@ -12,18 +12,13 @@ import CoreData
 //This view shows the details of a Gym session. So it will display the excercises performed with the sets performed
 struct SessionDetailView: View {
     @EnvironmentObject var vm: ViewModel
-//    @EnvironmentObject var setsVM: SetsViewModel
     
     private var session: SessionEntity
-//    private var exercises: [ExerciseEntity]
-    private var context: NSManagedObjectContext
     @State private var showNewExerciseView = false
     @State private var showNewSetView = false
     
-    init(session: SessionEntity, context: NSManagedObjectContext) {
+    init(session: SessionEntity) {
         self.session = session
-        self.context = context
-//        self.exercises = ExerciseEntity.allExercisesForSession(session, context: context)
     }
     
     var body: some View {
@@ -37,8 +32,8 @@ struct SessionDetailView: View {
                         showNewExerciseView = true
                     }
                     .sheet(isPresented: $showNewExerciseView) {
-                        NewExerciseView(session: session, context: context)
-                                                                .environmentObject(vm)
+                        NewExerciseView(session: session)
+                                    .environmentObject(vm)
                     }
                     
                 }
@@ -50,9 +45,12 @@ struct SessionDetailView: View {
                     ForEach(getExercisesForSession()) { exercise in
                         
                         ExerciseDetailView(exercise: exercise)
+                            .environmentObject(vm)
+                            .padding(.bottom)
                     }
                     
                 }
+                .padding()
                 
             }
         
@@ -91,7 +89,7 @@ struct SessionDetailView: View {
     }
     
     var sessionImage: some View {
-        AsyncImage(url: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBsWaMMH2fU9E-0mtcDZzScolvVJ8Ly_T6vw&usqp=CAU")) {image in
+        AsyncImage(url: URL(string: getImageURL(for: session))) {image in
             image
                 .resizable()
                 .scaledToFit()

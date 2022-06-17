@@ -20,7 +20,6 @@ extension SetEntity {
         newSet.timeAdded = Date()
         newSet.setOrigin_ = originExercise
         try? context.save()
-        print("New Set added successfully!")
     }
     
     static func getAllSetsForExercise(_ exercise: ExerciseEntity, context: NSManagedObjectContext) -> [SetEntity] {

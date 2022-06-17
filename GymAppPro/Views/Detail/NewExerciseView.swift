@@ -12,14 +12,14 @@ struct NewExerciseView: View {
     @Environment(\.presentationMode) private var presentationMode
     @EnvironmentObject var vm: ViewModel
     private var session: SessionEntity
-    private var context: NSManagedObjectContext
+//    private var context: NSManagedObjectContext
     @State private var exerciseName = ""
     @State private var muscle: Muscle = .back
 //    @State private var videoLink = ""
     
-    init(session: SessionEntity, context: NSManagedObjectContext) {
+    init(session: SessionEntity) {
         self.session = session
-        self.context = context
+//        self.context = context
     }
     
     var body: some View {
@@ -70,16 +70,8 @@ struct NewExerciseView: View {
     }
     
     func saveExercise() {
-        let newExercise = ExerciseEntity(context: context)
-        newExercise.id = UUID()
-        newExercise.timeAdded = Date()
-        newExercise.name = exerciseName
-        newExercise.muscle = muscle.rawValue
         
-        vm.addExercise(to: self.session, exercise: newExercise)
-        
-//        newExercise.originSession_ = session
-//        try? context.save()
+        vm.addExercise(to: self.session, name: exerciseName, muscle: muscle)
     }
 }
 

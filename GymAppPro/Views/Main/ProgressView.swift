@@ -16,52 +16,56 @@ struct ProgressView: View {
     
     var body: some View {
         
-            
-            VStack {
-                topBadge
-                .frame(width: 400, height: 90)
-                
-                Form {
-                    Section(header: Text("Muscle")) {
-                        Picker("", selection: $muscle) {
-                            ForEach(Muscle.allCases, id: \.self) {muscle in
-                                Text(muscle.rawValue)
-                            }
-                        }
-                        .pickerStyle(.menu)
-                    }
-                    
-                    Section(header: Text("Dates")) {
-                        DatePicker("From: ", selection: $startDate, displayedComponents: .date)
-                            .pickerStyle(.wheel)
-                        DatePicker("To", selection: $endDate, displayedComponents: .date)
-                    }
-                    
-                }
-                .frame(height: 300)
-                
+        NavigationView {
+            ScrollView {
                 VStack {
-                    viewChartButton
+                    topBadge
+                    .frame(width: 400, height: 90)
                     
-//                    BarChartView(data: [150.2, 23,1, 200.6], title: "\(muscle.rawValue)")
+                    Form {
+                        Section(header: Text("Muscle")) {
+                            Picker("", selection: $muscle) {
+                                ForEach(Muscle.allCases, id: \.self) {muscle in
+                                    Text(muscle.rawValue)
+                                }
+                            }
+                            .pickerStyle(.menu)
+                        }
+                        
+                        Section(header: Text("Dates")) {
+                            DatePicker("From: ", selection: $startDate, displayedComponents: .date)
+                                .pickerStyle(.wheel)
+                            DatePicker("To", selection: $endDate, displayedComponents: .date)
+                        }
+                        
+                    }
+                    .frame(height: 300)
                     
-                    /*BarChartView(data: ChartData(values: [
-                        ("Jan", 100), ("Feb", 200), ("Mar", 250), ("Apr", 500), ("May", 190)
-                    ]),title: "\(muscle.rawValue)")*/
+                    VStack {
+                        viewChartButton
+                        
+    //                    BarChartView(data: [150.2, 23,1, 200.6], title: "\(muscle.rawValue)")
+                        
+                        /*BarChartView(data: ChartData(values: [
+                            ("Jan", 100), ("Feb", 200), ("Mar", 250), ("Apr", 500), ("May", 190)
+                        ]),title: "\(muscle.rawValue)")*/
+                        
+                        BarChartView(data: ChartData(values: [
+                            ("Jan", 100), ("Feb", 200), ("Mar", 250), ("Apr", 500), ("May", 190), ("June", 700), ("November", 300), ("December", 790)
+                        ]), title: "Title", form: ChartForm.extraLarge)
+                        
+                        
+                        
+    //                    LineChartView(data: [150.2, 23,1, 200.6], title: "Back")
+                        
+    //                    LineChartView(data: [150.2, 23,1, 200.6], title: "\(muscle.rawValue)", legend: "plus", style: ChartStyle(formSize: CGSize(width: 200, height: 200)), form: nil, rateValue: nil, dropShadow: false, valueSpecifier: nil)
+                    }
                     
-                    BarChartView(data: ChartData(values: [
-                        ("Jan", 100), ("Feb", 200), ("Mar", 250), ("Apr", 500), ("May", 190), ("June", 700), ("November", 300), ("December", 790)
-                    ]), title: "Title", form: ChartForm.extraLarge)
-                    
-                    
-                    
-//                    LineChartView(data: [150.2, 23,1, 200.6], title: "Back")
-                    
-//                    LineChartView(data: [150.2, 23,1, 200.6], title: "\(muscle.rawValue)", legend: "plus", style: ChartStyle(formSize: CGSize(width: 200, height: 200)), form: nil, rateValue: nil, dropShadow: false, valueSpecifier: nil)
+                    Spacer()
                 }
-                
-                Spacer()
             }
+            .navigationTitle("Progress")
+        }
     }
     
     

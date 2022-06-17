@@ -20,6 +20,7 @@ enum Muscle: String, CaseIterable {
     case calf = "Gastrocnemius"
     case glutes = "Gluteus maximus"
     case trapezius = "Trapezius"
+    case fullBody = "Full body"
     
 }
 
@@ -39,6 +40,56 @@ enum MuscleImageLink: String {
     case calf = "https://pbs.twimg.com/media/Cw8mBqXXgAEDERC.jpg"
     case glutes = "https://www.bodybuilding.com/images/2016/december/the-guys-guide-to-great-glutes-tall-v2.jpg"
     case trapezius = "http://cdn.shopify.com/s/files/1/1901/6815/articles/new_cover_traps_600x.png?v=1531458740"
+    case fullBody = "https://wallpaperaccess.com/full/1484388.jpg"
 }
 
+func getImage_url(for muscle: Muscle) -> String {
+    switch muscle {
+        
+    case .chest:
+        return MuscleImageLink.chest.rawValue
+    case .tricep:
+        return MuscleImageLink.tricep.rawValue
+    case .back:
+        return MuscleImageLink.back.rawValue
+    case .biceps:
+        return MuscleImageLink.biceps.rawValue
+    case .legs:
+        return MuscleImageLink.legs.rawValue
+    case .shoulder:
+        return MuscleImageLink.shoulder.rawValue
+    case .abdominals:
+        return MuscleImageLink.abdominals.rawValue
+    case .hamstring:
+        return MuscleImageLink.hamstring.rawValue
+    case .quadriceps:
+        return MuscleImageLink.quadriceps.rawValue
+    case .calf:
+        return MuscleImageLink.calf.rawValue
+    case .glutes:
+        return MuscleImageLink.glutes.rawValue
+    case .trapezius:
+        return MuscleImageLink.trapezius.rawValue
+    case .fullBody:
+        return MuscleImageLink.fullBody.rawValue
+    }
+}
 
+func getImageURL(for session: SessionEntity) -> String {
+    var image_url_string = ""
+    
+    if session.exercises.count > 0 {
+        let exercise = session.exercises.first
+        if let muscleEnum = Muscle(rawValue: exercise!.unwrappedMuscle) {  //Creates a muscle enum from the exercise muscle name
+            image_url_string = getImage_url(for: muscleEnum)
+            
+        } else {
+            image_url_string = MuscleImageLink.fullBody.rawValue
+        }
+        
+    } else {
+        image_url_string = MuscleImageLink.fullBody.rawValue
+    }
+    
+    return image_url_string
+}

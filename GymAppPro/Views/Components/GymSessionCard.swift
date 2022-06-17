@@ -26,7 +26,8 @@ struct GymSessionCard: View {
     var body: some View {
 
         VStack {
-            AsyncImage(url: URL(string: "https://miro.medium.com/max/1001/1*9OrxMWzC6ARoatL1rrufQg.jpeg")) { image in
+//            AsyncImage(url: URL(string: "https://miro.medium.com/max/1001/1*9OrxMWzC6ARoatL1rrufQg.jpeg")) { image in
+            AsyncImage(url: URL(string: getImageURL(for: session))) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -60,8 +61,24 @@ struct GymSessionCard: View {
     private let frameHeight: CGFloat = 217
     
     
-    
-    
+    /*func getImageURL(for session: SessionEntity) -> String {
+        var image_url_string = ""
+        
+        if session.exercises.count > 0 {
+            let exercise = session.exercises.first
+            if let muscleEnum = Muscle(rawValue: exercise!.unwrappedMuscle) {  //Creates a muscle enum from the exercise muscle name
+                image_url_string = getImage_url(for: muscleEnum)
+                
+            } else {
+                image_url_string = MuscleImageLink.fullBody.rawValue
+            }
+            
+        } else {
+            image_url_string = MuscleImageLink.fullBody.rawValue
+        }
+        
+        return image_url_string
+    }*/
     
     //////////////////////////////////////////////////////
     

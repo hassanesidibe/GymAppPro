@@ -27,9 +27,16 @@ class ViewModel: ObservableObject {
         sessions = SessionEntity.getAllSessions(context: context)
     }
     
-    func addExercise(to session: SessionEntity, exercise: ExerciseEntity) {
-        ExerciseEntity.newExercise(session, exercise: exercise, context: self.context)
-        sessions = SessionEntity.getAllSessions(context: self.context)
+    func addExercise(to session: SessionEntity, name: String, muscle: Muscle) {
+        let newExercise = ExerciseEntity(context: self.context)
+        newExercise.id = UUID()
+        newExercise.timeAdded = Date()
+        newExercise.name = name
+        newExercise.muscle = muscle.rawValue
+        
+        ExerciseEntity.newExercise(session, exercise: newExercise, context: self.context)
+//        sessions = SessionEntity.getAllSessions(context: self.context)
+        allExercise = ExerciseEntity.allExercise(in: self.context)
     }
     
     func addSet(to exercise: ExerciseEntity, weight: Double, reps: Double) {
