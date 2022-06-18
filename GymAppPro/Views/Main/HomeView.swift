@@ -10,8 +10,9 @@ import CoreData
 
 struct HomeView: View {
     
-    @StateObject var vm: ViewModel = ViewModel(context: CoreDataManager.shared.container.viewContext)
+//
     
+    @EnvironmentObject var vm: ViewModel
     var viewContext: NSManagedObjectContext
     @State private var showNewSessionView = false
     

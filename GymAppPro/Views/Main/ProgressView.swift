@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftUICharts
 
 struct ProgressView: View {
-    
+    @EnvironmentObject var vm: ViewModel
     @State private var muscle: Muscle = .back
     @State var startDate: Date = Date()
     @State var endDate: Date = Date()
@@ -51,7 +51,7 @@ struct ProgressView: View {
                         ]),title: "\(muscle.rawValue)")*/
                         
                         BarChartView(data: ChartData(values: [
-                            ("Jan", 100), ("Feb", 200), ("Mar", 250), ("Apr", 500), ("May", 190), ("June", 700), ("November", 300), ("December", 790)
+                            ("Jan", 100), ("Feb", 200), ("Mar", 250), ("Apr", 500), ("May", 190), ("June", 700), ("July", 45), ("August", 50), ("September", 300), ("October", 120), ("November", 300), ("December", 790)
                         ]), title: "Title", form: ChartForm.extraLarge)
                         
                         
@@ -60,6 +60,21 @@ struct ProgressView: View {
                         
     //                    LineChartView(data: [150.2, 23,1, 200.6], title: "\(muscle.rawValue)", legend: "plus", style: ChartStyle(formSize: CGSize(width: 200, height: 200)), form: nil, rateValue: nil, dropShadow: false, valueSpecifier: nil)
                     }
+                    
+                    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ///THE CODE BELOW IS FOR TESTING PURPOSE ONLY
+                    VStack {
+                        Text("Hello Hassane")
+                        List {
+                            ForEach(vm.progress(for: muscle, from: startDate, to: endDate)) {exercise in
+    //                            Text(exercise.unwrappedName)
+                                Text("Hello")
+                            }
+                        }
+                    }
+                    
+                    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    
                     
                     Spacer()
                 }

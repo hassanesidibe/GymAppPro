@@ -53,6 +53,67 @@ class ViewModel: ObservableObject {
     }
     
     func getAllExercise(for session: SessionEntity) -> [ExerciseEntity] {
-        ExerciseEntity.allExercisesForSession(session, context: self.context)
+        print("HELLO FROM getAlExercise()")
+        return ExerciseEntity.allExercisesForSession(session, context: self.context)
     }
+    
+    
+    
+    
+    //TESTING PROGRESS VIEW FUNCTIONS
+//    func progress(for muscle: Muscle, from startDate: Date, to endDate: Date) -> [Double] {
+    
+    func progress(for muscle: Muscle, from startDate: Date, to endDate: Date) -> [ExerciseEntity] {
+        print("PROGRESS FUNCTION HAS BEEN CALLED")
+        
+        /*let allExercises_forMuscle = ExerciseEntity.allExercise(in: self.context).filter { $0.unwrappedMuscle == muscle.rawValue } */ //returns all exercises for the specified muscle
+        
+        let allExercises_forMuscle = ExerciseEntity.allExercise(in: self.context)
+        
+        //ORIGINAL
+//        let filtered_exercises = allExercises_forMuscle.filter { ($0.timeAdded! >= startDate) &&
+//                                                                 ($0.timeAdded! <= endDate ) &&
+//                                                                 ($0.unwrappedMuscle == muscle.rawValue)
+//                                                                }
+        
+        //FOR TESTIN PURPOSE
+        let exercises = allExercises_forMuscle.filter { ($0.timeAdded! >= startDate) &&
+                                                                 ($0.unwrappedMuscle == muscle.rawValue)
+                                                                } //This will return all the exercises for the muscle group parameter, in the date range specified
+        
+        var exercises_withoutDuplicates = [ExerciseEntity]()
+        //remove the duplicates from the array
+        for index in exercises.indices {
+            
+            if !exercises_withoutDuplicates.contains(where: {$0.id! == exercises[index].id! }) {
+                exercises_withoutDuplicates.append(exercises[index])
+            }
+        }
+        
+        
+//        EVERYTHING ABOVE THIS LINE IS WORKING PROPERLY
+        
+        
+        
+        print("There are \(exercises_withoutDuplicates.count) matching exercise")
+        
+        for index in exercises_withoutDuplicates.indices {
+            print("\(exercises_withoutDuplicates[index].unwrappedName), id: \(exercises_withoutDuplicates[index].id!)")
+        }
+        
+        return exercises
+        
+//        var weightProgress = [Double]()
+        
+        
+        //loop over the filtered exercises and add the sets info (weight x reps) to the array that will be returned
+//        for index in filtered_exercises.indices {
+//
+//        }
+        
+//        return weightProgress
+    }
+    
+    
+    
 }

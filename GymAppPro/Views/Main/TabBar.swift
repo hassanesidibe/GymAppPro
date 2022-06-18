@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct TabBar: View {
+    @StateObject var vm: ViewModel = ViewModel(context: CoreDataManager.shared.container.viewContext)
     
     var body: some View {
         TabView {
             HomeView()
+                .environmentObject(vm)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
             
             ProgressView()
+                .environmentObject(vm)
                 .tabItem {
                     Label("Progress", systemImage: "chart.line.uptrend.xyaxis")
                 }
