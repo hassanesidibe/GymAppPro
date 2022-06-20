@@ -15,6 +15,8 @@ class ViewModel: ObservableObject {
     @Published var allSets: [SetEntity]
     @Published var allExercise: [ExerciseEntity]
     
+    @Published var progressReport: [(date: String, totalWeight: Double)] = []  //returns an array of tupple to the progress view to be display
+    
     init(context: NSManagedObjectContext) {
         self.context = context
         sessions = SessionEntity.getAllSessions(context: context)
@@ -63,15 +65,20 @@ class ViewModel: ObservableObject {
     //TESTING PROGRESS VIEW FUNCTIONS
 //    func progress(for muscle: Muscle, from startDate: Date, to endDate: Date) -> [Double] {
     
-    func progress(for muscle: Muscle, from startDate: Date, to endDate: Date) -> [ExerciseEntity] {
-        print("PROGRESS FUNCTION HAS BEEN CALLED")
+    //the function should return something similar to this [(date: String, summation: Double)]  //the string will be the date and the double will be the sum of the sets and weight performed during that exercise
+    
+//    func progress(for muscle: Muscle, from startDate: Date, to endDate: Date) -> [ExerciseEntity] {
+    
+    func progress(for muscle: Muscle, from startDate: Date, to endDate: Date) {
+        print("\nPROGRESS FUNCTION HAS BEEN CALLED")
         
-        /*let allExercises_forMuscle = ExerciseEntity.allExercise(in: self.context).filter { $0.unwrappedMuscle == muscle.rawValue } */ //returns all exercises for the specified muscle
+//        THIS FUNCTION SHOULD RETURN THE TUPPLE BELOW
+        var dates_and_weights: [(String, Double)] = []
         
         let allExercises_forMuscle = ExerciseEntity.allExercise(in: self.context)
         
         //ORIGINAL
-//        let filtered_exercises = allExercises_forMuscle.filter { ($0.timeAdded! >= startDate) &&
+//        let exercises = allExercises_forMuscle.filter { ($0.timeAdded! >= startDate) &&
 //                                                                 ($0.timeAdded! <= endDate ) &&
 //                                                                 ($0.unwrappedMuscle == muscle.rawValue)
 //                                                                }
@@ -80,6 +87,7 @@ class ViewModel: ObservableObject {
         let exercises = allExercises_forMuscle.filter { ($0.timeAdded! >= startDate) &&
                                                                  ($0.unwrappedMuscle == muscle.rawValue)
                                                                 } //This will return all the exercises for the muscle group parameter, in the date range specified
+        
         
         var exercises_withoutDuplicates = [ExerciseEntity]()
         //remove the duplicates from the array
@@ -91,17 +99,31 @@ class ViewModel: ObservableObject {
         }
         
         
-//        EVERYTHING ABOVE THIS LINE IS WORKING PROPERLY
+        //calculate the total weight lifted during each exercise
         
         
         
-        print("There are \(exercises_withoutDuplicates.count) matching exercise")
+        
+//        EVERYTHING ABOVE THIS LINE IS WORKING PROPERLY. The loop above is able to remove duplicates from my the array
+        
+        
+        
+        print("\nThere are \(exercises_withoutDuplicates.count) matching exercise")
         
         for index in exercises_withoutDuplicates.indices {
-            print("\(exercises_withoutDuplicates[index].unwrappedName), id: \(exercises_withoutDuplicates[index].id!)")
+            let curent_ecercise = exercises_withoutDuplicates[index]
+//            print("\(exercises_withoutDuplicates[index].unwrappedName), id: \(exercises_withoutDuplicates[index].id!)")
+            print("\(curent_ecercise.unwrappedName), weight: \(curent_ecercise.calculateWeight()), Date added: \(curent_ecercise.timeAdded!.medium_asString())")
+            
+            //apped the date, and the sum of the exercise sets and weight to the array of tupple that will be returned
+            let exercise_sumary: (String, Double) = (curent_ecercise.timeAdded!.medium_asString(), curent_ecercise.calculateWeight())
+            dates_and_weights.append(exercise_sumary)
+            
         }
         
-        return exercises
+        progressReport = dates_and_weights   //UPDATES THE PROGRESS REPORT, changing the progress report will be reflected in the progress view
+        
+//        return exercises
         
 //        var weightProgress = [Double]()
         

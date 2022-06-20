@@ -93,3 +93,40 @@ func getImageURL(for session: SessionEntity) -> String {
     
     return image_url_string
 }
+
+
+//func calculateWeight(for exercise: ExerciseEntity) -> Double {
+//    var total: Double = 0
+//    
+//    let exercise_sets = (exercise.setsPerformed_ as? Set<SetEntity>) ?? []
+//    let sets_array = Array(exercise_sets)
+//    
+//    for index in sets_array.indices {
+//        
+//        let weight = sets_array[index].weight
+//        let reps = sets_array[index].reps
+//        total = total + (weight * reps)
+//    }
+//    
+//    return total
+//}
+
+
+//I will use this function for testing purpose, it takes an Int and return a new date from the past. For example if i call the function with 10 as the argument, it will return a new date 10 days in the past
+extension Date {
+    static func go_inThe_past(by numDays: Int, from date: Date) -> Date {
+        if let date = Calendar.current.date(byAdding: .day, value: -numDays, to: date) {
+            return date
+        } else {
+            return Date()
+        }
+        
+    }
+    
+    
+    func medium_asString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: self)
+    }
+}

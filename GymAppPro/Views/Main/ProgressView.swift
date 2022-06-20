@@ -52,7 +52,7 @@ struct ProgressView: View {
                         
                         BarChartView(data: ChartData(values: [
                             ("Jan", 100), ("Feb", 200), ("Mar", 250), ("Apr", 500), ("May", 190), ("June", 700), ("July", 45), ("August", 50), ("September", 300), ("October", 120), ("November", 300), ("December", 790)
-                        ]), title: "Title", form: ChartForm.extraLarge)
+                        ]), title: muscle.rawValue, form: ChartForm.extraLarge)
                         
                         
                         
@@ -64,13 +64,21 @@ struct ProgressView: View {
                     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ///THE CODE BELOW IS FOR TESTING PURPOSE ONLY
                     VStack {
-                        Text("Hello Hassane")
-                        List {
-                            ForEach(vm.progress(for: muscle, from: startDate, to: endDate)) {exercise in
-    //                            Text(exercise.unwrappedName)
-                                Text("Hello")
-                            }
+                        Text("The report below is for testing purpose")
+                        
+                        ForEach(0..<vm.progressReport.count, id: \.self) {index in
+                            let exercise_sumary = vm.progressReport[index]
+                            Text("\(exercise_sumary.date): \(exercise_sumary.totalWeight, specifier: "%.1f")")
                         }
+                        
+                        /*List {
+//                            ForEach(vm.progress(for: muscle, from: startDate, to: endDate)) {exercise in
+                            
+                            ForEach(0..<vm.progressReport.count, id: \.self) {index in
+                                let exercise_sumary = vm.progressReport[index]
+                                Text("\(exercise_sumary.date): \(exercise_sumary.totalWeight)")
+                            }
+                        }*/
                     }
                     
                     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,6 +106,8 @@ struct ProgressView: View {
     
     var viewChartButton: some View {
         Button(action: {
+            vm.progress(for: muscle, from: startDate, to: endDate)
+            
             
         }) {
             ZStack {

@@ -29,7 +29,21 @@ extension ExerciseEntity {
         newExercise.id = exercise.id
         newExercise.name = exercise.name
         newExercise.muscle = exercise.muscle
-        newExercise.timeAdded = Date()
+//        newExercise.timeAdded = Date()
+        
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// TESTING PURPOSE
+        ///CHOSING A DATE IN THE PAST
+        var dates_toChoose_from = [Int]()
+        for i in 1...60 {
+            dates_toChoose_from.append(i)   //dates_toChoose_from will hold an array of int from 1 to 60, so that I can set the date of the new exercise to the past
+        }
+        
+        let chosenDate_inThe_past = dates_toChoose_from.randomElement()
+        newExercise.timeAdded = Date.go_inThe_past(by: chosenDate_inThe_past!, from: Date())
+        
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    END OF TESTING
+        
         newExercise.originSession_ = session
         try? context.save()
     }
@@ -61,4 +75,21 @@ extension ExerciseEntity {
         let exercises = (try? context.fetch(request)) ?? []
         return exercises
     }
+    
+//    THIS IS WHERE IS STOPPED
+    func calculateWeight() -> Double {
+        var total: Double = 0
+        
+        let exercise_sets = (setsPerformed_ as? Set<SetEntity>) ?? []
+        let sets_array = Array(exercise_sets)
+        
+        for index in sets_array.indices {
+            let weight = sets_array[index].weight
+            let reps = sets_array[index].reps
+            total = total + (weight * reps)
+        }
+        
+        return total
+    }
 }
+
