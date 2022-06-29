@@ -25,7 +25,7 @@ struct ExerciseDetailView: View {
         VStack {
             
             HStack {
-                exerciseTitle
+                exerciseTitle.font(.body)
                 
                 Spacer()
                 showNewSetButton

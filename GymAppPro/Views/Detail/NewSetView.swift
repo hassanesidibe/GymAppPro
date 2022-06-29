@@ -63,6 +63,7 @@ struct NewSetView: View {
             .navigationTitle("New Set")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func matchingExercise(to exercise: ExerciseEntity) -> ExerciseEntity {

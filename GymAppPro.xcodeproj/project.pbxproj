@@ -21,13 +21,16 @@
 		454756C72807788C0033623A /* GymSessionMuscleImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756C62807788C0033623A /* GymSessionMuscleImages.swift */; };
 		454756CF28077A680033623A /* SetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454756CE28077A680033623A /* SetsListView.swift */; };
 		4549173E2800E2040022ED0B /* GymAppProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549173D2800E2040022ED0B /* GymAppProApp.swift */; };
-		454917402800E2040022ED0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549173F2800E2040022ED0B /* ContentView.swift */; };
+		454917402800E2040022ED0B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549173F2800E2040022ED0B /* LoginView.swift */; };
 		454917422800E2040022ED0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454917412800E2040022ED0B /* Assets.xcassets */; };
 		454917452800E2040022ED0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454917442800E2040022ED0B /* Preview Assets.xcassets */; };
 		4557F8522808D3AE00AB853A /* NewExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F8512808D3AE00AB853A /* NewExerciseView.swift */; };
 		4562305B2853EBC300B381DA /* Muscle_and_Image_utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4562305A2853EBC300B381DA /* Muscle_and_Image_utilities.swift */; };
 		456423B42858F469003FAFB7 /* SetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456423B32858F469003FAFB7 /* SetsViewModel.swift */; };
+		4565F52E286CD53B00DD2813 /* UserEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565F52D286CD53B00DD2813 /* UserEntityExtension.swift */; };
 		456F9B1A2849531200BF5DA4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456F9B192849531200BF5DA4 /* CoreDataManager.swift */; };
+		456FC9902866556800413441 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 456FC98F2866556800413441 /* FirebaseAuth */; };
+		456FC99228665AC300413441 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 456FC99128665AC300413441 /* GoogleService-Info.plist */; };
 		4571D98128511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4571D97F28511F490043FBAE /* GymAppProCoreDataModel.xcdatamodeld */; };
 		4571D984285121F40043FBAE /* SessionEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D983285121F40043FBAE /* SessionEntityExtension.swift */; };
 		4571D9862851222D0043FBAE /* ExerciseEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D9852851222D0043FBAE /* ExerciseEntityExtension.swift */; };
@@ -51,13 +54,15 @@
 		454756CE28077A680033623A /* SetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsListView.swift; sourceTree = "<group>"; };
 		4549173A2800E2040022ED0B /* GymAppPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymAppPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4549173D2800E2040022ED0B /* GymAppProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymAppProApp.swift; sourceTree = "<group>"; };
-		4549173F2800E2040022ED0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4549173F2800E2040022ED0B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		454917412800E2040022ED0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		454917442800E2040022ED0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4557F8512808D3AE00AB853A /* NewExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseView.swift; sourceTree = "<group>"; };
 		4562305A2853EBC300B381DA /* Muscle_and_Image_utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscle_and_Image_utilities.swift; sourceTree = "<group>"; };
 		456423B32858F469003FAFB7 /* SetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsViewModel.swift; sourceTree = "<group>"; };
+		4565F52D286CD53B00DD2813 /* UserEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityExtension.swift; sourceTree = "<group>"; };
 		456F9B192849531200BF5DA4 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		456FC99128665AC300413441 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4571D98028511F490043FBAE /* GymAppProCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymAppProCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		4571D983285121F40043FBAE /* SessionEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEntityExtension.swift; sourceTree = "<group>"; };
 		4571D9852851222D0043FBAE /* ExerciseEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseEntityExtension.swift; sourceTree = "<group>"; };
@@ -72,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				453F3099280CAF02008FA672 /* SwiftUICharts in Frameworks */,
+				456FC9902866556800413441 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +115,8 @@
 		454756B1280776150033623A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4549173F2800E2040022ED0B /* ContentView.swift */,
+				4549173F2800E2040022ED0B /* LoginView.swift */,
+				456FC99128665AC300413441 /* GoogleService-Info.plist */,
 				454756B42807766B0033623A /* TabBar.swift */,
 				454756B6280776890033623A /* HomeView.swift */,
 				454756B8280776A40033623A /* ProgressView.swift */,
@@ -195,6 +202,7 @@
 				4571D983285121F40043FBAE /* SessionEntityExtension.swift */,
 				4571D9852851222D0043FBAE /* ExerciseEntityExtension.swift */,
 				4571D987285122520043FBAE /* SetEntityExtension.swift */,
+				4565F52D286CD53B00DD2813 /* UserEntityExtension.swift */,
 			);
 			path = EntityExtensions;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 			name = GymAppPro;
 			packageProductDependencies = (
 				453F3098280CAF02008FA672 /* SwiftUICharts */,
+				456FC98F2866556800413441 /* FirebaseAuth */,
 			);
 			productName = GymAppPro;
 			productReference = 4549173A2800E2040022ED0B /* GymAppPro.app */;
@@ -248,6 +257,7 @@
 			mainGroup = 454917312800E2040022ED0B;
 			packageReferences = (
 				453F3097280CAF02008FA672 /* XCRemoteSwiftPackageReference "ChartView" */,
+				456FC98E2866556800413441 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 4549173B2800E2040022ED0B /* Products */;
 			projectDirPath = "";
@@ -265,6 +275,7 @@
 			files = (
 				454917452800E2040022ED0B /* Preview Assets.xcassets in Resources */,
 				454917422800E2040022ED0B /* Assets.xcassets in Resources */,
+				456FC99228665AC300413441 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,10 +289,11 @@
 				453F309B280CC144008FA672 /* ExerciseTutorialView.swift in Sources */,
 				454756BB280776BC0033623A /* NewSessionView.swift in Sources */,
 				454756C32807784C0033623A /* GymSessionCard.swift in Sources */,
+				4565F52E286CD53B00DD2813 /* UserEntityExtension.swift in Sources */,
 				454756BD280776DB0033623A /* SettingsView.swift in Sources */,
 				4571D984285121F40043FBAE /* SessionEntityExtension.swift in Sources */,
 				456F9B1A2849531200BF5DA4 /* CoreDataManager.swift in Sources */,
-				454917402800E2040022ED0B /* ContentView.swift in Sources */,
+				454917402800E2040022ED0B /* LoginView.swift in Sources */,
 				454756C52807786B0033623A /* GymSessionList.swift in Sources */,
 				454756B7280776890033623A /* HomeView.swift in Sources */,
 				4571D988285122520043FBAE /* SetEntityExtension.swift in Sources */,
@@ -511,6 +523,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		456FC98E2866556800413441 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -518,6 +538,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 453F3097280CAF02008FA672 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		456FC98F2866556800413441 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 456FC98E2866556800413441 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 

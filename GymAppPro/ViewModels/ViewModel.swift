@@ -30,14 +30,7 @@ class ViewModel: ObservableObject {
     }
     
     func addExercise(to session: SessionEntity, name: String, muscle: Muscle) {
-        let newExercise = ExerciseEntity(context: self.context)
-        newExercise.id = UUID()
-        newExercise.timeAdded = Date()
-        newExercise.name = name
-        newExercise.muscle = muscle.rawValue
-        
-        ExerciseEntity.newExercise(session, exercise: newExercise, context: self.context)
-//        sessions = SessionEntity.getAllSessions(context: self.context)
+        ExerciseEntity.newExercise(session, name, muscle, context: self.context)
         allExercise = ExerciseEntity.allExercise(in: self.context)
     }
     
@@ -67,73 +60,11 @@ class ViewModel: ObservableObject {
     
     //the function should return something similar to this [(date: String, summation: Double)]  //the string will be the date and the double will be the sum of the sets and weight performed during that exercise
     
-//    func progress(for muscle: Muscle, from startDate: Date, to endDate: Date) -> [ExerciseEntity] {
-    
     func progress(for muscle: Muscle, from startDate: Date, to endDate: Date) {
         print("\nPROGRESS FUNCTION HAS BEEN CALLED")
         
-//        THIS FUNCTION SHOULD RETURN THE TUPPLE BELOW
-        var dates_and_weights: [(String, Double)] = []
-        
-        let allExercises_forMuscle = ExerciseEntity.allExercise(in: self.context)
-        
-        //ORIGINAL
-//        let exercises = allExercises_forMuscle.filter { ($0.timeAdded! >= startDate) &&
-//                                                                 ($0.timeAdded! <= endDate ) &&
-//                                                                 ($0.unwrappedMuscle == muscle.rawValue)
-//                                                                }
-        
-        //FOR TESTIN PURPOSE
-        let exercises = allExercises_forMuscle.filter { ($0.timeAdded! >= startDate) &&
-                                                                 ($0.unwrappedMuscle == muscle.rawValue)
-                                                                } //This will return all the exercises for the muscle group parameter, in the date range specified
-        
-        
-        var exercises_withoutDuplicates = [ExerciseEntity]()
-        //remove the duplicates from the array
-        for index in exercises.indices {
-            
-            if !exercises_withoutDuplicates.contains(where: {$0.id! == exercises[index].id! }) {
-                exercises_withoutDuplicates.append(exercises[index])
-            }
-        }
-        
-        
-        //calculate the total weight lifted during each exercise
-        
-        
-        
-        
-//        EVERYTHING ABOVE THIS LINE IS WORKING PROPERLY. The loop above is able to remove duplicates from my the array
-        
-        
-        
-        print("\nThere are \(exercises_withoutDuplicates.count) matching exercise")
-        
-        for index in exercises_withoutDuplicates.indices {
-            let curent_ecercise = exercises_withoutDuplicates[index]
-//            print("\(exercises_withoutDuplicates[index].unwrappedName), id: \(exercises_withoutDuplicates[index].id!)")
-            print("\(curent_ecercise.unwrappedName), weight: \(curent_ecercise.calculateWeight()), Date added: \(curent_ecercise.timeAdded!.medium_asString())")
-            
-            //apped the date, and the sum of the exercise sets and weight to the array of tupple that will be returned
-            let exercise_sumary: (String, Double) = (curent_ecercise.timeAdded!.medium_asString(), curent_ecercise.calculateWeight())
-            dates_and_weights.append(exercise_sumary)
-            
-        }
-        
-        progressReport = dates_and_weights   //UPDATES THE PROGRESS REPORT, changing the progress report will be reflected in the progress view
-        
-//        return exercises
-        
-//        var weightProgress = [Double]()
-        
-        
-        //loop over the filtered exercises and add the sets info (weight x reps) to the array that will be returned
-//        for index in filtered_exercises.indices {
-//
-//        }
-        
-//        return weightProgress
+        progressReport = []  //Clear the variable
+        progressReport = ExerciseEntity.calculate_progress(for: muscle, from: startDate, to: endDate, in: self.context)
     }
     
     

@@ -40,6 +40,7 @@ struct NewSessionView: View {
             .navigationTitle("New Session")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     func createSession() {

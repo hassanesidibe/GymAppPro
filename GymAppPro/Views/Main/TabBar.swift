@@ -34,10 +34,10 @@ struct TabBar: View {
                     Label("Tutorial", systemImage: "brain.head.profile")
                 }
             
-            SettingsView()
-                .tabItem {
-                    Label("Settings", systemImage: "gear")
-                }
+//            SettingsView()
+//                .tabItem {
+//                    Label("Settings", systemImage: "gear")
+//                }
         }
     }
 }

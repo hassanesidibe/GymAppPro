@@ -24,11 +24,12 @@ extension ExerciseEntity {
         set { setsPerformed_ = (newValue as NSSet) }
     }
     
-    static func newExercise(_ session: SessionEntity, exercise: ExerciseEntity, context: NSManagedObjectContext) {
+    static func newExercise(_ origin_session: SessionEntity, _ name: String, _ muscle: Muscle, context: NSManagedObjectContext) {
+//    static func newExercise(_ session: SessionEntity, exercise: ExerciseEntity, context: NSManagedObjectContext) {
         let newExercise = ExerciseEntity(context: context)
-        newExercise.id = exercise.id
-        newExercise.name = exercise.name
-        newExercise.muscle = exercise.muscle
+        newExercise.id = UUID()
+        newExercise.name = name
+        newExercise.muscle = muscle.rawValue
 //        newExercise.timeAdded = Date()
         
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// TESTING PURPOSE
@@ -44,7 +45,7 @@ extension ExerciseEntity {
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    END OF TESTING
         
-        newExercise.originSession_ = session
+        newExercise.originSession_ = origin_session
         try? context.save()
     }
     
@@ -77,7 +78,7 @@ extension ExerciseEntity {
     }
     
 //    THIS IS WHERE IS STOPPED
-    func calculateWeight() -> Double {
+    func calculateWeight_for_all_set_in_one_exercise() -> Double {
         var total: Double = 0
         
         let exercise_sets = (setsPerformed_ as? Set<SetEntity>) ?? []
@@ -90,6 +91,27 @@ extension ExerciseEntity {
         }
         
         return total
+    }
+    
+    static func calculate_progress(for muscle: Muscle, from startDate: Date, to endDate: Date, in context: NSManagedObjectContext) -> [(date: String, totalWeight: Double)] {
+        
+        var dates_and_weight_tupple: [(String, Double)] = []
+        //filter exercise, to find the matching one with corresponding dates and muscle
+        let matching_exercises = ExerciseEntity.allExercise(in: context).filter {
+            $0.unwrappedMuscle == muscle.rawValue
+            && $0.timeAdded! >= startDate
+//            && $0.timeAdded! <= endDate
+        }
+        
+        //loop over the matching exercises and calculate the total for each exercise
+        for index in matching_exercises.indices {
+            let exercise_date = matching_exercises[index].timeAdded!.medium_asString()
+            let total = matching_exercises[index].calculateWeight_for_all_set_in_one_exercise()
+            dates_and_weight_tupple.append((exercise_date, total))  //append the exercise summary to the array of tupple
+        }
+        
+        
+        return dates_and_weight_tupple
     }
 }
 

@@ -21,7 +21,6 @@ class SetsViewModel: ObservableObject {
     func newSet(weight: Double, reps: Double, origin: ExerciseEntity, context: NSManagedObjectContext) {
         let newSet = SetEntity(context: context)
         newSet.id = UUID()
-        newSet.timeAdded = Date()
         newSet.weight = weight
         newSet.reps = reps
         newSet.setOrigin_ = origin

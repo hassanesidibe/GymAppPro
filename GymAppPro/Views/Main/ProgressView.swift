@@ -8,16 +8,42 @@
 import SwiftUI
 import SwiftUICharts
 
+struct LineShape: Shape {
+     var yValues: [Double]
+     var scaleFactor: Double
+ 
+     func path(in rect: CGRect) -> Path {
+         let xIncrement = (rect.width / (CGFloat(yValues.count)))
+         var xValue = xIncrement * 0.5
+         var path = Path()
+         path.move(to: CGPoint(x: xValue,
+                              y: (rect.height - (yValues[0] * scaleFactor))))
+        for i in 1..<yValues.count {
+            xValue += xIncrement
+            let pt = CGPoint(x: xValue,
+                             y: (rect.height - (yValues[i] * scaleFactor)))
+            path.addLine(to: pt)
+        }
+        return path
+    }
+}
+
+
+
 struct ProgressView: View {
     @EnvironmentObject var vm: ViewModel
     @State private var muscle: Muscle = .back
     @State var startDate: Date = Date()
     @State var endDate: Date = Date()
+    @State private var values_toDisplay_in_barChart: [(String, Int)]  = []
+    @State private var values_toDisplay_inLine_chart: [Double] = []
     
     var body: some View {
         
         NavigationView {
             ScrollView {
+                VStack { }.padding()
+                
                 VStack {
                     topBadge
                     .frame(width: 400, height: 90)
@@ -44,21 +70,9 @@ struct ProgressView: View {
                     VStack {
                         viewChartButton
                         
-    //                    BarChartView(data: [150.2, 23,1, 200.6], title: "\(muscle.rawValue)")
                         
-                        /*BarChartView(data: ChartData(values: [
-                            ("Jan", 100), ("Feb", 200), ("Mar", 250), ("Apr", 500), ("May", 190)
-                        ]),title: "\(muscle.rawValue)")*/
-                        
-                        BarChartView(data: ChartData(values: [
-                            ("Jan", 100), ("Feb", 200), ("Mar", 250), ("Apr", 500), ("May", 190), ("June", 700), ("July", 45), ("August", 50), ("September", 300), ("October", 120), ("November", 300), ("December", 790)
-                        ]), title: muscle.rawValue, form: ChartForm.extraLarge)
-                        
-                        
-                        
-    //                    LineChartView(data: [150.2, 23,1, 200.6], title: "Back")
-                        
-    //                    LineChartView(data: [150.2, 23,1, 200.6], title: "\(muscle.rawValue)", legend: "plus", style: ChartStyle(formSize: CGSize(width: 200, height: 200)), form: nil, rateValue: nil, dropShadow: false, valueSpecifier: nil)
+                        //USE THE LINE BELOW IN THE FINAL APP
+                        BarChartView(data: ChartData(values: values_toDisplay_in_barChart), title: muscle.rawValue, form: ChartForm.extraLarge)
                     }
                     
                     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,15 +84,6 @@ struct ProgressView: View {
                             let exercise_sumary = vm.progressReport[index]
                             Text("\(exercise_sumary.date): \(exercise_sumary.totalWeight, specifier: "%.1f")")
                         }
-                        
-                        /*List {
-//                            ForEach(vm.progress(for: muscle, from: startDate, to: endDate)) {exercise in
-                            
-                            ForEach(0..<vm.progressReport.count, id: \.self) {index in
-                                let exercise_sumary = vm.progressReport[index]
-                                Text("\(exercise_sumary.date): \(exercise_sumary.totalWeight)")
-                            }
-                        }*/
                     }
                     
                     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -89,6 +94,7 @@ struct ProgressView: View {
             }
             .navigationTitle("Progress")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     
@@ -97,7 +103,7 @@ struct ProgressView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 15)
                 .foregroundColor(.indigo)
-                .opacity(0.7)
+                .opacity(0.9)
             Text("Select muscle and dates to see your progress")
                 .bold()
                 .foregroundColor(.white)
@@ -108,6 +114,19 @@ struct ProgressView: View {
         Button(action: {
             vm.progress(for: muscle, from: startDate, to: endDate)
             
+            values_toDisplay_in_barChart.removeAll()
+//            values_toDisplay_inLine_chart.removeAll()
+            
+            for index in vm.progressReport.indices {
+                let exercise_sumary = vm.progressReport[index]
+                let weight = Int(exercise_sumary.totalWeight)
+                
+                //The lines below will allow the user to choose between a line chart or bar chart view of their progress
+                
+                values_toDisplay_in_barChart.append((exercise_sumary.date, weight)) //This updates the barchart data
+                
+//                values_toDisplay_inLine_chart.append(exercise_sumary.totalWeight) //This updates the Line chart data
+            }
             
         }) {
             ZStack {

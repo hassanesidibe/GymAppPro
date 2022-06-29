@@ -24,6 +24,7 @@ struct SessionDetailView: View {
     var body: some View {
         
             ScrollView {
+                Spacer(minLength: -35)
                 sessionImage
                 HStack {
                     sessionName
@@ -92,7 +93,9 @@ struct SessionDetailView: View {
         AsyncImage(url: URL(string: getImageURL(for: session))) {image in
             image
                 .resizable()
+                .frame(height: 300)
                 .scaledToFit()
+//                .scaledToFill()
             
         } placeholder: {
             Image(systemName: "photo")

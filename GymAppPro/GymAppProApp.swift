@@ -11,16 +11,18 @@ import SwiftUI
 struct GymAppProApp: App {
 //    let context = CoreDataManager.shared.persistentContainer.viewContext
 
+    @State private var login_successfull = false
     var body: some Scene {
         WindowGroup {
-            /*ContentView()
-                .environment(\.managedObjectContext, context)*/
+            
+//            LoginView()
+            
+//            Login(
             
             TabBar()
                 .environment(\.managedObjectContext, CoreDataManager.shared.container.viewContext)
             
-//            HomeView()
-//                .environment(\.managedObjectContext, CoreDataManager.shared.container.viewContext)
+//            Testing_view()
         }
     }
 }

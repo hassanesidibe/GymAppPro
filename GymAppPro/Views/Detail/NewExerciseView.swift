@@ -59,6 +59,7 @@ struct NewExerciseView: View {
             .navigationTitle("New Exercise")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     var saveButton: some View {

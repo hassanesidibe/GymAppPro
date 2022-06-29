@@ -17,9 +17,10 @@ extension SetEntity {
 //        newSet.info = "\(weight)X\(reps)"
         newSet.weight = weight
         newSet.reps = reps
-        newSet.timeAdded = Date()
         newSet.setOrigin_ = originExercise
         try? context.save()
+        
+        print("Adding new set to: \(originExercise.unwrappedName), \(weight)lb X \(reps) reps")
     }
     
     static func getAllSetsForExercise(_ exercise: ExerciseEntity, context: NSManagedObjectContext) -> [SetEntity] {
