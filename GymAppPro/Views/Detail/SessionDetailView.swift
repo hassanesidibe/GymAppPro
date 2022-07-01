@@ -53,8 +53,23 @@ struct SessionDetailView: View {
                 }
                 .padding()
                 
-            }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
         
+                        takeProgressPhoto()
+                        } label: {
+                            VStack {
+                                Image(systemName: "camera")
+                                Text("Progress Photo")
+                                    .font(.system(size: 15))
+                            }
+                        }
+
+                    }
+                }
+                
+            }
         
        
 //        ScrollView {
@@ -68,6 +83,13 @@ struct SessionDetailView: View {
 //                }
 //            }
 //        }
+        
+    }
+    
+    private func takeProgressPhoto() {
+        //ALLOW THE USER TO TAKE A PROGRESS IMAGE FOR THE SESSION
+        
+        
         
     }
     

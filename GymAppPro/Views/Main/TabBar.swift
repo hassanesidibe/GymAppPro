@@ -29,7 +29,8 @@ struct TabBar: View {
 //                    Label("New session", systemImage: "plus")
 //                }
             
-            ExerciseTutorialView()
+//            ExerciseTutorialView()
+            New_tutorial_view()
                 .tabItem {
                     Label("Tutorial", systemImage: "brain.head.profile")
                 }

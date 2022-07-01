@@ -19,10 +19,13 @@ struct GymAppProApp: App {
             
 //            Login(
             
-            TabBar()
-                .environment(\.managedObjectContext, CoreDataManager.shared.container.viewContext)
+//            TabBar()
+//                .environment(\.managedObjectContext, CoreDataManager.shared.container.viewContext)
             
 //            Testing_view()
+            
+//            Tutorial_card(for: .back)
+            New_tutorial_view()
         }
     }
 }

@@ -7,10 +7,15 @@
 
 import SwiftUI
 
+enum AppTheme: String, CaseIterable {
+    case red = "Red", green = "Green", pink = "Pink", yellow = "Yellow", purple = "Purple", orange = "Orange", black = "Black"
+}
+
 struct SettingsView: View {
     @Environment(\.presentationMode) private var presentationMode
     @EnvironmentObject var vm: ViewModel
     @State private var current_software_version = "1.0.0"
+    @State private var chosenThem: AppTheme = .black
     
     var body: some View {
         
@@ -27,7 +32,11 @@ struct SettingsView: View {
                 
                 Section {
                     NavigationLink(destination: Change_profile_image_view().environmentObject(vm), label: { Text("Change profile image") })
-                    Text("Change them color")
+                    Picker("Color", selection: $chosenThem) {
+                        ForEach(AppTheme.allCases, id: \.self) {color in
+                            Text(color.rawValue)
+                        }
+                    }
                     
                 } header: {
                     Text("App theme")
