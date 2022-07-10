@@ -16,6 +16,8 @@ struct HomeView: View {
     var viewContext: NSManagedObjectContext
     @State private var showNewSessionView = false
     @State private var show_settings_view = false
+    @State private var shouldUpdateContext = false
+    @State private var refreshUI = false
     
     init() {
         self.viewContext = CoreDataManager.shared.container.viewContext
@@ -58,6 +60,15 @@ struct HomeView: View {
                     .navigationTitle("Home")
                     .navigationViewStyle(StackNavigationViewStyle())
                 }
+        
+    }
+    
+//    if vm.refreshUI
+    
+    mutating func update_context() {
+        if shouldUpdateContext {
+            self.viewContext = CoreDataManager.shared.container.viewContext
+        }
     }
     
     var profile_image: some View {

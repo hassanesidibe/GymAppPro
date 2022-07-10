@@ -27,7 +27,8 @@ struct GymSessionCard: View {
 
         VStack {
 //            AsyncImage(url: URL(string: "https://miro.medium.com/max/1001/1*9OrxMWzC6ARoatL1rrufQg.jpeg")) { image in
-            AsyncImage(url: URL(string: getImageURL(for: session))) { image in
+//            AsyncImage(url: URL(string: getImageURL(for: session))) { image in
+            AsyncImage(url: URL(string: getRandomImageURL())) { image in
                 image
                     .resizable()
                     .scaledToFill()

@@ -21,29 +21,43 @@ enum Muscle: String, CaseIterable {
     case glutes = "Gluteus maximus"
     case trapezius = "Trapezius"
     case fullBody = "Full body"
-    
+}
+
+
+
+//struct Muscle_info {
+//    enum Category {
+//        case upper_body, lower_body, cardio, full_body
+//    }
+//
+//    var name: Muscle
+//    var category: Category
+//}
+
+
+func getUpper_body_muscles() -> [Muscle] {
+    let upper_body_muscles: [Muscle] = [.back, .biceps, .chest, .tricep, .shoulder, .trapezius]
+    return upper_body_muscles
+}
+
+func getLower_body_muscles() -> [Muscle] {
+    let lowerBody_muscles: [Muscle] = [.hamstring, .quadriceps, .glutes, .calf, .legs]
+    return lowerBody_muscles
 }
 
 enum MuscleImageLink: String {
-//    case chest = "https://c8.alamy.com/comp/D9NTCR/anatomy-of-male-pectoral-muscles-D9NTCR.jpg"
-//    case chest = "https://miro.medium.com/max/1001/1*9OrxMWzC6ARoatL1rrufQg.jpeg"
-    case chest = "https://fitbodybuzz.com/wp-content/uploads/2021/10/1-Chest-Workouts.jpg"
-    case tricep = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBsWaMMH2fU9E-0mtcDZzScolvVJ8Ly_T6vw&usqp=CAU"
+    case chest = "https://www.teahub.io/photos/full/66-660101_chest-workout.png"
+    case tricep = "https://www.muscleandfitness.com/wp-content/uploads/2018/01/man-bodyweight-dip-1109.jpg?quality=86&strip=all"
     case back = "https://cdn.shopify.com/s/files/1/1915/0785/files/seated-pulley-row-2-0_large.jpg?v=1585509781"
     case biceps = "https://cdn.shopify.com/s/files/1/1876/4703/articles/shutterstock_1931706245_1000x.jpg?v=1623346351"
-//    case biceps = "https://manofmany.com/wp-content/uploads/2020/06/best-bicep-exercises.jpg"
     case legs = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/young-woman-doing-squats-on-a-road-at-sunset-royalty-free-image-1645654296.jpg"
-//    case shoulder = "https://d3h9ln6psucegz.cloudfront.net/wp-content/uploads/2010/10/Unconventional-Workout-Shoulders.jpg"
-    case shoulder = "https://stronglinksfitness.com/wp-content/uploads/2019/03/wp2750610-894x1024.jpg"
+    case shoulder = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmBPh-70mFcXNjSzKh0x-WPcutoZ7yu4Q3qg&usqp=CAU"
     case abdominals = "https://www.bodybuilding.com/images/2016/july/monster-abs-are-made-in-the-winter-header-v2s-960x540.jpg"
     case hamstring = "https://www.t-nation.com/wp-content/uploads/2018/12/Pre-Stimulation-Hamstring-Training.jpeg"
     case quadriceps = "https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/11/Quad-muscle-exercises.jpg?fit=1600%2C1065&ssl=1"
-    case calf = "https://pbs.twimg.com/media/Cw8mBqXXgAEDERC.jpg"
-//    case glutes = "https://www.bodybuilding.com/images/2016/december/the-guys-guide-to-great-glutes-tall-v2.jpg"
+    case calf = "https://manofmany.com/wp-content/uploads/2020/02/Best-Calf-Exercises.jpg"
     case glutes = "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F35%2F2020%2F05%2F07%2Fglute-kickback.jpg"
-    
     case trapezius = "http://cdn.shopify.com/s/files/1/1901/6815/articles/new_cover_traps_600x.png?v=1531458740"
-//    case fullBody = "https://wallpaperaccess.com/full/1484388.jpg"
     case fullBody = "https://post.healthline.com/wp-content/uploads/2021/04/957377-The-6-Best-Kettlebells-You-Can-Buy-in-2021-1200x628-Facebook.jpg"
 }
 
@@ -98,6 +112,56 @@ func getImageURL(for session: SessionEntity) -> String {
     return image_url_string
 }
 
+func getRandomImageURL() -> String {
+    let images_urls = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmBPh-70mFcXNjSzKh0x-WPcutoZ7yu4Q3qg&usqp=CAU",
+                        "https://cutewallpaper.org/22/dwayne-johnson-workout-wallpapers/28039627.jpg",
+                       "https://cdn.shopify.com/s/files/1/1915/0785/files/seated-pulley-row-2-0_large.jpg?v=1585509781",
+                       "https://c4.wallpaperflare.com/wallpaper/735/263/743/muscle-muscle-training-dumbbells-wallpaper-preview.jpg",
+                       "https://miro.medium.com/max/1071/1*WNr4o3XKVcb556Al3beWAQ.jpeg",
+                       "https://cdn.shopify.com/s/files/1/1876/4703/articles/shutterstock_1931706245_1000x.jpg?v=1623346351",
+                       "https://post.healthline.com/wp-content/uploads/2021/04/957377-The-6-Best-Kettlebells-You-Can-Buy-in-2021-1200x628-Facebook.jpg",
+                       "http://cdn.shopify.com/s/files/1/1901/6815/articles/new_cover_traps_600x.png?v=1531458740",
+                       "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F35%2F2020%2F05%2F07%2Fglute-kickback.jpg",
+                       "https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/11/Quad-muscle-exercises.jpg?fit=1600%2C1065&ssl=1",
+                       "https://www.t-nation.com/wp-content/uploads/2018/12/Pre-Stimulation-Hamstring-Training.jpeg",
+                       "https://post.healthline.com/wp-content/uploads/2021/04/957377-The-6-Best-Kettlebells-You-Can-Buy-in-2021-1200x628-Facebook.jpg",
+                       "https://manofmany.com/wp-content/uploads/2020/02/Best-Calf-Exercises.jpg",
+                       "https://images.everydayhealth.com/images/what-is-liss-cardio-a-detailed-beginners-guide-1440x810.jpg",
+                       "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F35%2F2020%2F02%2FGettyImages-1081398308-2000.jpg",
+                       "https://www.muscleandfitness.com/wp-content/uploads/2018/01/man-bodyweight-dip-1109.jpg?quality=86&strip=all"
+                        ]
+    
+    
+    
+    return images_urls.randomElement()!
+}
+
+
+
+func get_tutorial_url(for muscle: Muscle) -> String {
+    switch muscle {
+        case .abdominals: return "https://www.youtube.com/results?search_query=top+10+abs+workout"
+        case .back: return "https://www.youtube.com/results?search_query=best+back+workout"
+        case .biceps: return "https://www.youtube.com/results?search_query=best+biceps+workout"
+        case .calf: return "https://www.youtube.com/results?search_query=best+calf+workout"
+        case .chest: return "https://www.youtube.com/results?search_query=best+chest+exercises"
+        case .fullBody: return "https://www.youtube.com/results?search_query=best+full+body+workout"
+        case .glutes: return "https://www.youtube.com/results?search_query=best+glute+workout"
+        case .hamstring: return "https://www.youtube.com/results?search_query=best+hamstring+exercises"
+        case .legs: return "https://www.youtube.com/results?search_query=best+leg+exercises"
+        case .quadriceps: return "https://www.youtube.com/results?search_query=best+quadriceps+exercises"
+        case .tricep: return "https://www.youtube.com/results?search_query=best+triceps+exercises"
+        case .shoulder: return "https://www.youtube.com/results?search_query=best+shoulder+exercises"
+        case .trapezius: return "https://www.youtube.com/results?search_query=best+trap+exercises"
+    }
+}
+
+func calisthenic_images_urls() -> [String]{
+    return ["https://d3h9ln6psucegz.cloudfront.net/wp-content/uploads/2020/11/4-Bodyweight-Training-Myths-Busted.jpeg",
+            "https://cdn.pullup-dip.com/media/image/1b/f1/6b/calisthenics-trainingsplan-title.jpg",
+            "https://cdn.shopify.com/s/files/1/2438/8213/articles/IMG_0050_800x.JPG?v=1548309282",
+            "https://cdn.muscleandstrength.com/sites/default/files/field/feature-wide-image/workout/calisthenics_for_lifters_-_1000x500.jpg"]
+}
 
 //func calculateWeight(for exercise: ExerciseEntity) -> Double {
 //    var total: Double = 0

@@ -14,6 +14,7 @@ class ViewModel: ObservableObject {
     @Published var sessions: [SessionEntity]
     @Published var allSets: [SetEntity]
     @Published var allExercise: [ExerciseEntity]
+//    @Published var refreshUI = false
     
     @Published var progressReport: [(date: String, totalWeight: Double)] = []  //returns an array of tupple to the progress view to be display
     
@@ -51,7 +52,6 @@ class ViewModel: ObservableObject {
         print("HELLO FROM getAlExercise()")
         return ExerciseEntity.allExercisesForSession(session, context: self.context)
     }
-    
     
     
     

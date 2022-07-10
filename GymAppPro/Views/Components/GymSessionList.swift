@@ -28,7 +28,11 @@ struct GymSessionList: View {
                                 SessionDetailView(session: session)
                                         .environmentObject(vm)
                 ) {
+                    
+                    
                     GymSessionCard(session)
+                    
+                    
 //                        .frame(width: 100, height: 100)
                 }
             }

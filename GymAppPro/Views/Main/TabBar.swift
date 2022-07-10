@@ -18,21 +18,16 @@ struct TabBar: View {
                     Label("Home", systemImage: "house")
                 }
             
-            ProgressView()
-                .environmentObject(vm)
-                .tabItem {
-                    Label("Progress", systemImage: "chart.line.uptrend.xyaxis")
-                }
-            
-//            NewSessionView()
-//                .tabItem {
-//                    Label("New session", systemImage: "plus")
-//                }
-            
 //            ExerciseTutorialView()
             New_tutorial_view()
                 .tabItem {
                     Label("Tutorial", systemImage: "brain.head.profile")
+                }
+            
+            ProgressView()
+                .environmentObject(vm)
+                .tabItem {
+                    Label("Progress", systemImage: "chart.line.uptrend.xyaxis")
                 }
             
 //            SettingsView()

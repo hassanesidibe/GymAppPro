@@ -21,29 +21,42 @@ struct SettingsView: View {
         
         NavigationView {
             
-            Form {
-                Section {
-                    NavigationLink(destination: Change_email_view().environmentObject(vm), label: { Text("Change Email")} )
-                    NavigationLink(destination: Change_password_view().environmentObject(vm), label: { Text("Change password") } )
-                } header: {
-                    Text("User info")
-                }
-
-                
-                Section {
-                    NavigationLink(destination: Change_profile_image_view().environmentObject(vm), label: { Text("Change profile image") })
-                    Picker("Color", selection: $chosenThem) {
-                        ForEach(AppTheme.allCases, id: \.self) {color in
-                            Text(color.rawValue)
-                        }
+            VStack {
+                Form {
+                    Section {
+                        NavigationLink(destination: Change_email_view().environmentObject(vm), label: { Text("Change Email")} )
+                        NavigationLink(destination: Change_password_view().environmentObject(vm), label: { Text("Change password") } )
+                    } header: {
+                        Text("User info")
                     }
-                    
-                } header: {
-                    Text("App theme")
-                }
 
+                    
+                    Section {
+                        NavigationLink(destination: Change_profile_image_view().environmentObject(vm), label: { Text("Change profile image") })
+                        Picker("Color", selection: $chosenThem) {
+                            ForEach(AppTheme.allCases, id: \.self) {color in
+                                Text(color.rawValue)
+                            }
+                        }
+                        
+                    } header: {
+                        Text("App theme")
+                    }
+                }
+                
+                Spacer()
+                
+                Button(action: {
+                    //Logout of user's account, and go to the login view
+                    
+                    
+                }) {
+                    Text("Logout")
+                        .foregroundColor(.red)
+                }
+                .padding()
+                
             }
-            
             .navigationTitle("Settings")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
