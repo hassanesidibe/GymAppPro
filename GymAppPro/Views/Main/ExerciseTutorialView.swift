@@ -153,69 +153,6 @@ struct New_tutorial_view: View {
 
 
 
-struct Calisthenics_view: View {
-    
-    var urls = ["https://www.transparentlabs.com/blogs/all/calisthenics-workout",
-                "https://www.gym-pact.com/list-of-calisthenics-exercises",
-                "https://www.insider.com/guides/health/fitness/calisthenics",
-                "https://www.ammfitness.co.uk/information-advice/calisthenics-exercises",
-                "https://marcpro.com/blog/calisthenics-exercises/"]
-    
-    var body: some View {
-        Text("Hello from Calisthenics_view")
-        
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 20)], spacing: 20) {
-            ForEach(calisthenic_images_urls(), id: \.self) {url in
-                ImageCard(for: url)
-            }
-        }
-    }
-}
-
-
-struct ImageCard: View {
-    
-    var url: String
-    
-    init(for url: String) {
-        self.url = url
-    }
-    
-    var body: some View {
-        
-        VStack {
-            AsyncImage(url: URL(string: url)) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                
-            } placeholder: {
-                Image(systemName: "photo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100, alignment: .bottom)
-                    .foregroundColor(.white).opacity(0.7)
-//                    .frame(width: .infinity)
-            }
-        }
-        .frame(width: 160, height: 217, alignment: .top)
-        .background(LinearGradient(
-            gradient: Gradient(colors: [Color(.gray).opacity(0.3), Color(.gray)]),
-            startPoint: .top, endPoint: .bottom))
-        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .shadow(color: Color.black.opacity(0.3), radius: 15, x: 0, y: 15)
-        
-        .overlay(alignment: .bottom) {
-            Text("Calisthenics")
-                .foregroundColor(.white)
-                .shadow(color: .black, radius: 3, x: 0, y: 0)
-                .font(.headline)
-                .padding()
-        }
-    }
-}
-
-
 
 
 struct ExerciseTutorialView_Previews: PreviewProvider {

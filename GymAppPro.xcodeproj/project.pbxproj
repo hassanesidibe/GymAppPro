@@ -37,6 +37,7 @@
 		4571D988285122520043FBAE /* SetEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D987285122520043FBAE /* SetEntityExtension.swift */; };
 		4571D98A285122F90043FBAE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4571D989285122F90043FBAE /* ViewModel.swift */; };
 		4574D26228525DE6004A0D80 /* NewSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4574D26128525DE6004A0D80 /* NewSetView.swift */; };
+		457587CD287C864900570F09 /* Calisthenics_view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457587CC287C864900570F09 /* Calisthenics_view.swift */; };
 		459B63BE2877583000CF20EC /* Tutorial_card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B63BD2877583000CF20EC /* Tutorial_card.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		4571D987285122520043FBAE /* SetEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetEntityExtension.swift; sourceTree = "<group>"; };
 		4571D989285122F90043FBAE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4574D26128525DE6004A0D80 /* NewSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSetView.swift; sourceTree = "<group>"; };
+		457587CC287C864900570F09 /* Calisthenics_view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calisthenics_view.swift; sourceTree = "<group>"; };
 		459B63BD2877583000CF20EC /* Tutorial_card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial_card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 				454756C0280778280033623A /* ExerciseDetailView.swift */,
 				4557F8512808D3AE00AB853A /* NewExerciseView.swift */,
 				4574D26128525DE6004A0D80 /* NewSetView.swift */,
+				457587CC287C864900570F09 /* Calisthenics_view.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				454756C1280778280033623A /* ExerciseDetailView.swift in Sources */,
 				454756CF28077A680033623A /* SetsListView.swift in Sources */,
 				4562305B2853EBC300B381DA /* Muscle_and_Image_utilities.swift in Sources */,
+				457587CD287C864900570F09 /* Calisthenics_view.swift in Sources */,
 				4557F8522808D3AE00AB853A /* NewExerciseView.swift in Sources */,
 				4571D9862851222D0043FBAE /* ExerciseEntityExtension.swift in Sources */,
 				456423B42858F469003FAFB7 /* SetsViewModel.swift in Sources */,
