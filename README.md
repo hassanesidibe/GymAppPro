@@ -12,6 +12,8 @@ Fitness App that allows you to keep track of your fitness progress
 
 | <img width="274" alt="weightTutorial" src="https://user-images.githubusercontent.com/60410024/179616132-1926ce9f-9006-4af9-b87d-cc838752421d.png">  | <img width="274" alt="calisthenicTutorial" src="https://user-images.githubusercontent.com/60410024/179616133-603dec76-8f16-47de-a5ef-c592a985504b.png">  | <img width="274" alt="cardioTutorial" src="https://user-images.githubusercontent.com/60410024/179616138-09120adc-7650-456f-ae9c-7e05c918583e.png">  |
 
-<br>Progress View<br>
+<br>
 
-
+| Progress View  | 
+| ------------- |
+| <img width="274" alt="progressImage" src="https://user-images.githubusercontent.com/60410024/179617135-151d116a-94c2-4d83-aa1d-c39dffd83b87.png">  |
