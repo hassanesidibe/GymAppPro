@@ -1,6 +1,24 @@
 # GymAppPro
 Fitness App that allows you to keep track of your fitness progress
 
+<br><br>App features:
+<br>Home View
+<br>- Creating new session
+<br>- Delete old session
+<br>- View session detail
+<br><br>
+Session detail view
+<br>- Create new exercise
+<br>- Add set to exercise
+<br><br>Tutorial view
+<br>- Weight lifting tutorials
+<br>- Calisthenics tutorials
+<br>- Cardio tutorials
+<br>
+<br>Progress view<br>
+- Allows user to view progress for specified muscle, in a specified date range<br><br>
+
+
 | Home View  | Session Detail View | New Exercise View | New Set View |
 | ------------- | ------------- | ------------- |------------- |             
 |  <img width="279" alt="homeView" src="https://user-images.githubusercontent.com/60410024/179602657-17920b4e-772a-4c91-971a-8171f144f019.png">  |  <img width="274" alt="sessionDetailView" src="https://user-images.githubusercontent.com/60410024/179603188-e481c158-2b44-449a-ac09-4a28a411d8a6.png">  | <img width="274" alt="newExerciseView" src="https://user-images.githubusercontent.com/60410024/179603440-67475282-146c-4e35-a102-7ccb3f6b38e1.png">  | <img width="274" alt="newSetView" src="https://user-images.githubusercontent.com/60410024/179613290-a79beda6-b432-40b0-9580-be3a047ff52c.png">|
@@ -18,22 +36,6 @@ Fitness App that allows you to keep track of your fitness progress
 | ------------- |
 | <img width="274" alt="progressImage" src="https://user-images.githubusercontent.com/60410024/179617135-151d116a-94c2-4d83-aa1d-c39dffd83b87.png">  |
 
-<br>App features:
-<br>Home View
-<br>- Creating new session
-<br>- Delete old session
-<br>- View session detail
-<br><br>
-Session detail view
-<br>- Create new exercise
-<br>- Add set to exercise
-<br><br>Tutorial view
-<br>- Weight lifting tutorials
-<br>- Calisthenics tutorials
-<br>- Cardio tutorials
-<br>
-<br>Progress view<br>
-Allows user to view progress for specified muscle, in a specified date range
 
 
 
