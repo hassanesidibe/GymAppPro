@@ -26,21 +26,14 @@ struct HomeView: View {
     var body: some View {
                 
                 NavigationView {
-                        
                         ScrollView {
                             GymSessionList(context: viewContext)
                                 .environmentObject(vm)
                         }
+                        .padding(.top)
                         
                         
                         .toolbar {
-                            ToolbarItem(placement: .navigationBarLeading) {
-                                Button(action: {
-                                    show_settings_view = true
-                                }) {
-                                    profile_image
-                                }
-                            }
                             
                             ToolbarItem(placement: .navigationBarTrailing) {
                                 Button(action: { showNewSessionView = true }) {
@@ -48,6 +41,7 @@ struct HomeView: View {
                                 }
                             }
                         }
+                    
                         .sheet(isPresented: $showNewSessionView) {
                             
                             NewSessionView(context: viewContext)
@@ -61,28 +55,6 @@ struct HomeView: View {
                     .navigationViewStyle(StackNavigationViewStyle())
                 }
         
-    }
-    
-//    if vm.refreshUI
-    
-    mutating func update_context() {
-        if shouldUpdateContext {
-            self.viewContext = CoreDataManager.shared.container.viewContext
-        }
-    }
-    
-    var profile_image: some View {
-            
-         return   AsyncImage(url: URL(string: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2020/03/30/12/shutterstock-editorial-138187a.jpg?quality=75&width=982&height=726&auto=webp")) { image in
-                image
-                    .resizable()
-//                    .scaledToFit()
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
-                
-            } placeholder: {
-                Image(systemName: "camera")
-            }
     }
 }
 

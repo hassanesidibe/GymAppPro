@@ -24,17 +24,6 @@ enum Muscle: String, CaseIterable {
 }
 
 
-
-//struct Muscle_info {
-//    enum Category {
-//        case upper_body, lower_body, cardio, full_body
-//    }
-//
-//    var name: Muscle
-//    var category: Category
-//}
-
-
 func getUpper_body_muscles() -> [Muscle] {
     let upper_body_muscles: [Muscle] = [.back, .biceps, .chest, .tricep, .shoulder, .trapezius]
     return upper_body_muscles
@@ -156,27 +145,11 @@ func get_tutorial_url(for muscle: Muscle) -> String {
     }
 }
 
-func calisthenic_images_urls() -> [String]{
-    return ["https://d3h9ln6psucegz.cloudfront.net/wp-content/uploads/2020/11/4-Bodyweight-Training-Myths-Busted.jpeg",
-            "https://cdn.pullup-dip.com/media/image/1b/f1/6b/calisthenics-trainingsplan-title.jpg",
-            "https://cdn.shopify.com/s/files/1/2438/8213/articles/IMG_0050_800x.JPG?v=1548309282",
-            "https://cdn.muscleandstrength.com/sites/default/files/field/feature-wide-image/workout/calisthenics_for_lifters_-_1000x500.jpg"]
-}
-
-//func calculateWeight(for exercise: ExerciseEntity) -> Double {
-//    var total: Double = 0
-//    
-//    let exercise_sets = (exercise.setsPerformed_ as? Set<SetEntity>) ?? []
-//    let sets_array = Array(exercise_sets)
-//    
-//    for index in sets_array.indices {
-//        
-//        let weight = sets_array[index].weight
-//        let reps = sets_array[index].reps
-//        total = total + (weight * reps)
-//    }
-//    
-//    return total
+//func calisthenic_images_urls() -> [String]{
+//    return ["https://d3h9ln6psucegz.cloudfront.net/wp-content/uploads/2020/11/4-Bodyweight-Training-Myths-Busted.jpeg",
+//            "https://cdn.pullup-dip.com/media/image/1b/f1/6b/calisthenics-trainingsplan-title.jpg",
+//            "https://cdn.shopify.com/s/files/1/2438/8213/articles/IMG_0050_800x.JPG?v=1548309282",
+//            "https://cdn.muscleandstrength.com/sites/default/files/field/feature-wide-image/workout/calisthenics_for_lifters_-_1000x500.jpg"]
 //}
 
 

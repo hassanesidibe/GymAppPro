@@ -29,17 +29,9 @@ struct SessionDetailView: View {
                 HStack {
                     sessionName
                     Spacer()
-                    Button("New exercise") {
-                        showNewExerciseView = true
-                    }
-                    .sheet(isPresented: $showNewExerciseView) {
-                        NewExerciseView(session: session)
-                                    .environmentObject(vm)
-                    }
                     
                 }
                 .padding([.leading, .trailing])
-                
                 
                 VStack {
                     
@@ -56,33 +48,22 @@ struct SessionDetailView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-        
-                        takeProgressPhoto()
+                                showNewExerciseView = true
                         } label: {
                             VStack {
-                                Image(systemName: "camera")
-                                Text("Progress Photo")
-                                    .font(.system(size: 15))
+                                Image(systemName: "plus")
+                                Text("New exercise")
                             }
+                        }
+                        .sheet(isPresented: $showNewExerciseView) {
+                            NewExerciseView(session: session)
+                                        .environmentObject(vm)
                         }
 
                     }
                 }
                 
             }
-        
-       
-//        ScrollView {
-//                //Use asyncImage in a loop to display the images for all the muscles the user worked on during that gym session.
-//            GymSessionMuscleImages(session: session)
-//
-//            musclesNameView
-//            VStack {
-//                ForEach(session.exercises) {exercise in
-//                    SetsListView(exercise: exercise)
-//                }
-//            }
-//        }
         
     }
     

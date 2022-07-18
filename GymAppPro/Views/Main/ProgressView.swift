@@ -45,8 +45,10 @@ struct ProgressView: View {
                 VStack { }.padding()
                 
                 VStack {
-                    topBadge
-                    .frame(width: 400, height: 90)
+//                    topBadge
+//                    .frame(width: 400, height: 50)
+                        BarChartView(data: ChartData(values: values_toDisplay_in_barChart), title: muscle.rawValue, form: ChartForm.extraLarge)
+//                    }
                     
                     Form {
                         Section(header: Text("Muscle")) {
@@ -67,26 +69,7 @@ struct ProgressView: View {
                     }
                     .frame(height: 300)
                     
-                    VStack {
-                        viewChartButton
-                        
-                        
-                        //USE THE LINE BELOW IN THE FINAL APP
-                        BarChartView(data: ChartData(values: values_toDisplay_in_barChart), title: muscle.rawValue, form: ChartForm.extraLarge)
-                    }
-                    
-                    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    ///THE CODE BELOW IS FOR TESTING PURPOSE ONLY
-                    VStack {
-                        Text("The report below is for testing purpose")
-                        
-                        ForEach(0..<vm.progressReport.count, id: \.self) {index in
-                            let exercise_sumary = vm.progressReport[index]
-                            Text("\(exercise_sumary.date): \(exercise_sumary.totalWeight, specifier: "%.1f")")
-                        }
-                    }
-                    
-                    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    viewChartButton
                     
                     
                     Spacer()
@@ -131,7 +114,7 @@ struct ProgressView: View {
         }) {
             ZStack {
                 RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(.orange)
+                    .foregroundColor(.green)
                     .frame(height: 60)
 //                    .opacity(0.8)
                 Text("Update Chart")
@@ -140,6 +123,7 @@ struct ProgressView: View {
                     .foregroundColor(.white)
             }
             .padding([.leading, .trailing, .bottom])
+            .shadow(color: .gray.opacity(0.6), radius: 5, x: 0, y: 10)
         }
     }
 }

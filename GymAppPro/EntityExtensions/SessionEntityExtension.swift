@@ -67,4 +67,9 @@ extension SessionEntity {
         session.shortName = sessionName
         try? context.save()
     }
+    
+    static func delete(_ session: SessionEntity, in context: NSManagedObjectContext) {
+        context.delete(session)
+        try? context.save()
+    }
 }

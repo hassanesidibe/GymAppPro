@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 import WebKit
 
-
-//EVERYTHING IS WORKING PROPERLY HERE, SHOW THE VIDEOS USING NAVIGATION LINK IN WEIGHT TUTORIAL
+//The link bellow is where I found the Calisthenic exercises
+//https://thefitnesstribe.com/list-of-calisthenics-exercises/
 
 struct Calisthenics_view: View {
     
@@ -31,11 +31,18 @@ struct Calisthenics_view: View {
         
         VStack {
             
-            Picker("", selection: $selectedMuscle) {
-                ForEach(Calisthenic.Muscle.allCases, id: \.self) {muscle in
-                    Text(muscle.rawValue)
+            HStack {
+                title
+                
+                Picker("", selection: $selectedMuscle) {
+                    ForEach(Calisthenic.Muscle.allCases, id: \.self) {muscle in
+                        Text(muscle.rawValue)
+                    }
                 }
+                .padding(.trailing)
+                Spacer()
             }
+            
             switch selectedMuscle {
             case .chest: exerciseList(for: chest)
             case .back: exerciseList(for: back)
@@ -47,6 +54,15 @@ struct Calisthenics_view: View {
         }
     }
     
+    var title: some View {
+        HStack {
+            Text("Calisthenic")
+                .font(.title2)
+                .bold()
+                .padding(.leading)
+            Spacer()
+        }
+    }
     
     func exerciseList(for muscle: Calisthenic) -> some View {
         return LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 20)], spacing: 20) {
@@ -60,28 +76,6 @@ struct Calisthenics_view: View {
                 }) {
                     ImageCard(for: exerciseName, imageUrl: imgUrl)
                 }
-                
-                
-//                NavigationLink(destination: WebView(url: URL(string: videoUrl)!)),label: {
-//                    ImageCard(for: exerciseName, imageUrl: imgUrl)
-//                }
-                
-//                    .sheet(isPresented: $showWebView) {
-//                        if let url = URL(string: url) {
-//                            WebView(url: url)
-//                        }
-//                    }
-//                    .onTapGesture {
-//                        print("\(exerciseName) was tapped")
-//                        url = videoUrl
-//                        showWebView = true
-//                    }
-//
-//                    .sheet(isPresented: $showWebView) {
-//                        if let url = URL(string: url) {
-//                            WebView(url: url)
-//                        }
-//                    }
             }
         }
     }

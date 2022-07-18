@@ -30,10 +30,11 @@ struct TabBar: View {
                     Label("Progress", systemImage: "chart.line.uptrend.xyaxis")
                 }
             
-//            SettingsView()
-//                .tabItem {
-//                    Label("Settings", systemImage: "gear")
-//                }
+            SettingsView()
+                .environmentObject(vm)
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
     }
 }

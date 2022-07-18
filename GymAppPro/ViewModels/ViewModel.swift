@@ -14,7 +14,6 @@ class ViewModel: ObservableObject {
     @Published var sessions: [SessionEntity]
     @Published var allSets: [SetEntity]
     @Published var allExercise: [ExerciseEntity]
-//    @Published var refreshUI = false
     
     @Published var progressReport: [(date: String, totalWeight: Double)] = []  //returns an array of tupple to the progress view to be display
     
@@ -53,6 +52,10 @@ class ViewModel: ObservableObject {
         return ExerciseEntity.allExercisesForSession(session, context: self.context)
     }
     
+    func delete(_ session: SessionEntity) {
+        SessionEntity.delete(session, in: self.context)
+        sessions = SessionEntity.getAllSessions(context: self.context)
+    }
     
     
     //TESTING PROGRESS VIEW FUNCTIONS

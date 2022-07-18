@@ -39,13 +39,6 @@ struct New_tutorial_view: View {
     @State private var showTutorial = false
     
     @State private var muscleToShow_video_for = Muscle.chest
-//    private var muscles: [Muscle]
-//    private var upperBody_muscles: [Muscle]
-//    private var lowerBody_muscles: [Muscle]
-    
-    
-    init() {
-    }
     
     
     var body: some View {
@@ -57,66 +50,21 @@ struct New_tutorial_view: View {
                 
                 switch tutorial_type {
                     
-                case .wight:
-                    VStack {
-                        upper_body_title
-                        upper_body_scrollView
+                    case .wight:
+                    
+                    Weight_tutorial_view()
                         
-                        lower_body_title
-                        lower_body_scrollView
-                    }
-                    .padding()
-                    
-                case .calisthenics:
-//                    Text("Calisthenics")
-                    Calisthenics_view()
-                    
-                    
-                case .cardio:
-                    Text("Cardio")
+                    case .calisthenics:
+                        Calisthenics_view()
+                        
+                        
+                    case .cardio:
+                        Cardio_View()
                 }
             }
             
             .navigationTitle("Tutorials")
             .navigationViewStyle(StackNavigationViewStyle())
-        }
-    }
-    
-    
-    var upper_body_scrollView: some View {
-//        ScrollView(.horizontal) {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 20)], spacing: 20) {
-                
-                ForEach(getUpper_body_muscles(), id: \.self) {muscle in
-                    Tutorial_card(for: muscle)
-                        .onTapGesture {
-//                            SHOW A YOUTUBE PLAYLIST FOR SPECIFIED MUSCLE
-
-                            muscleToShow_video_for = muscle
-                            
-                            if muscleToShow_video_for != nil { showTutorial = true }
-//                            showTutorial = true
-                        }
-                        .sheet(isPresented: $showTutorial) {
-                            WebView(url: URL(string: get_tutorial_url(for: muscleToShow_video_for))!)
-                        }
-                }
-                
-            }
-//        }
-    }
-    
-    var lower_body_scrollView: some View {
-        ScrollView(.horizontal) {
-            LazyHGrid(rows: [GridItem(.adaptive(minimum: 160))]) {
-                ForEach(getLower_body_muscles(), id: \.self) {muscle in
-                    Tutorial_card(for: muscle)
-                        .onTapGesture {
-//                            SHOW A YOUTUBE PLAYLIST FOR SPECIFIED MUSCLE
-                            
-                        }
-                }
-            }
         }
     }
     
@@ -128,36 +76,14 @@ struct New_tutorial_view: View {
         }
         .pickerStyle(.segmented)
     }
-    
-    
-    var upper_body_title: some View {
-        HStack {
-            Text("Upper body")
-                .font(.title2)
-                .bold()
-                .padding(.leading)
-            Spacer()
-        }
-    }
-    
-    var lower_body_title: some View {
-        HStack {
-            Spacer()
-            Text("Lower body")
-                .font(.title2)
-                .bold()
-                .padding()
-        }
-    }
 }
 
 
 
 
 
-struct ExerciseTutorialView_Previews: PreviewProvider {
-    static var previews: some View {
-//        ExerciseTutorialView()
-        New_tutorial_view()
-    }
-}
+//struct ExerciseTutorialView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        New_tutorial_view()
+//    }
+//}

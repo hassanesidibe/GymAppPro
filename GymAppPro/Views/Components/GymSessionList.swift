@@ -13,6 +13,7 @@ struct GymSessionList: View {
     
     @EnvironmentObject var vm: ViewModel
     private var context: NSManagedObjectContext
+    @State private var showDeleteMessage = false
     
     init(context: NSManagedObjectContext) {
         self.context = context
@@ -28,14 +29,29 @@ struct GymSessionList: View {
                                 SessionDetailView(session: session)
                                         .environmentObject(vm)
                 ) {
-                    
-                    
                     GymSessionCard(session)
                     
+                }
+                .contentShape(Rectangle())
+                .simultaneousGesture(LongPressGesture().onEnded({ _ in
+                    //The two lines below are for the heaptic feedback
+                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                        impactHeavy.impactOccurred()
+                    showDeleteMessage = true
+                }))
+                .alert("Delete Session", isPresented: $showDeleteMessage) {
+                    Button("Delete", role: .destructive) {
+                        //Delete sesssion here, MORE CODE TO COME
+                        withAnimation {
+                            vm.delete(session)
+                        }
+                        
+                    }
                     
-//                        .frame(width: 100, height: 100)
+                    Button("Cancel", role: .cancel) {}
                 }
             }
+            
         }
     }
 }
