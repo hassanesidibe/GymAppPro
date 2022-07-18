@@ -30,7 +30,7 @@ Session detail view
 <br><br>Tutorial view
 <br>- Weight lifting tutorials
 <br>- Calisthenics tutorials
-<br>Cardio tutorials
+<br>- Cardio tutorials
 <br>
 <br>Progress view<br>
 Allows user to view progress for specified muscle, in a specified date range
