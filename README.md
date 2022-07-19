@@ -28,7 +28,9 @@ Session detail view
 | ------------- | ------------- | ------------- |
 | <img width="274" alt="tutorialWeight" src="https://user-images.githubusercontent.com/60410024/179614165-ef89ab61-ccfe-4809-86d8-07422da51718.png">  | <img width="274" alt="tutorialCalisthenics" src="https://user-images.githubusercontent.com/60410024/179614168-25e50d2c-1bea-45fb-83fd-e55671eaade9.png">  | <img width="274" alt="tutorialCardio" src="https://user-images.githubusercontent.com/60410024/179614170-8e9e5311-3b5e-41dc-b2d8-4cc38bb84e31.png">  |
 
-| <img width="274" alt="weightTutorial" src="https://user-images.githubusercontent.com/60410024/179616132-1926ce9f-9006-4af9-b87d-cc838752421d.png">  | <img width="274" alt="calisthenicTutorial" src="https://user-images.githubusercontent.com/60410024/179616133-603dec76-8f16-47de-a5ef-c592a985504b.png">  | <img width="274" alt="cardioTutorial" src="https://user-images.githubusercontent.com/60410024/179616138-09120adc-7650-456f-ae9c-7e05c918583e.png">  |
+| Weight video  | Calisthenics video | Cardio video |
+| ------------- | ------------- | ------------- |
+| <img width="274" alt="weightTutorial" src="https://user-images.githubusercontent.com/60410024/179616132-1926ce9f-9006-4af9-b87d-cc838752421d.png">  | <img width="274" alt="calisthenicTutorial" src="https://user-images.githubusercontent.com/60410024/179616133-603dec76-8f16-47de-a5ef-c592a985504b.png"> | <img width="274" alt="cardioTutorial" src="https://user-images.githubusercontent.com/60410024/179616138-09120adc-7650-456f-ae9c-7e05c918583e.png">  |
 
 <br>
 
