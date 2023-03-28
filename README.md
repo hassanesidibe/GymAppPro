@@ -1,4 +1,4 @@
-# GymAppPro
+# GymAppPro SwiftUI
 Fitness App that allows you to keep track of your fitness progress
 
 <br><br>App features:
